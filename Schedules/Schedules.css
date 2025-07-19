@@ -1,0 +1,206 @@
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background-color: black;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.021);
+    padding: 15px 10%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 60px;
+}
+
+.nav-links a {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 5%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}
+
+.schedule{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.match-box{
+    background: rgba(255, 255, 255, 0.05); 
+    border-radius: 12px;
+    box-shadow: 5px 5px 30px rgba(207, 199, 199, 0.884);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    padding: 10px 20px;
+    margin-left: 20%;
+    margin-right: 10%;
+    width: 60%;
+    transition: transform 0.3s ease;
+}
+
+.match-box:hover{
+    transform: scale(1.01);
+}
+
+.match-header{
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.teams{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.team{
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.team-left{
+    width: 20%;
+    background-color: #1DB954;
+    color: #dff9fb;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.team-right{
+    width: 20%;
+    background-color: #1DB954;
+    color: #dff9fb;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.result{
+    font-size: 16px;
+    font-style: italic;
+    color: #f1f1f1;
+    background-color: #509BF5;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px){
+    .teams{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .result{
+        margin: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .match-box {
+        font-size: 10px;
+        padding: 20px 10px;
+    }
+}
+canvas{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+/* Hamburger menu icon hidden by default */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #1DB954;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    position: relative;
+  }
+}
