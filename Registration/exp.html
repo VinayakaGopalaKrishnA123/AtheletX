@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cricket Registration Form with Particle Background</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      background: #000;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    option{
+      color:black;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(1px);
+      border-radius: 20px;
+      padding: 30px 25px;
+      color: #ffffff;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      margin-top: 40px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input[type="text"], select {
+      height: 38px;
+      padding: 8px 10px;
+      font-size: 15px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+    input::placeholder {
+      color: #ddd;
+    }
+    .member-input {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .member-input input {
+      flex: 1;
+    }
+    .addBtn {
+      padding: 8px 14px;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .addBtn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .member-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .member-box div {
+      padding: 6px 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+    .remove-btn {
+      color: #ff4d4d;
+      cursor: pointer;
+      margin-left: 8px;
+      font-weight: bold;
+    }
+    .total-members {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    .submit-btn {
+      padding: 14px;
+      background-color: #0e069d;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px 15px;
+      }
+      .addBtn {
+        width: 100%;
+      }
+      .member-input {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="container">
+    <h1>Cricket Registration Form</h1>
+    <form>
+      <div class="form-group">
+        <label>Team Name</label>
+        <input type="text" placeholder="Enter team name" required />
+      </div>
+
+      <div class="form-group">
+        <label>Branch</label>
+        <select required>
+          <option value="" disabled selected hidden>Select branch</option>
+          <option value="CSE">CSE</option>
+          <option value="AIML">AIML</option>
+          <option value="IT">IT</option>
+          <option value="DS">DS</option>
+          <option value="ECE">ECE</option>
+          <option value="MECH">MECH</option>
+          <option value="Agr">Agr</option>
+          <option value="MinE">MinE</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Year of Study</label>
+        <select required>
+          <option value="" disabled selected hidden>Select year</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Team Members <small>(Max 15)</small></label>
+        <div class="member-input">
+          <input type="text" class="memberName" placeholder="Enter member name" />
+          <button type="button" class="addBtn">Add</button>
+        </div>
+        <div class="member-box"></div>
+        <p class="total-members">Total Members: 0</p>
+      </div>
+
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </div>
+
+  <script>
+    let totalMembers = 0;
+    const totalDisplay = document.querySelector('.total-members');
+    const addBtn = document.querySelector('.addBtn');
+
+    addBtn.addEventListener('click', () => {
+      const input = document.querySelector('.memberName');
+      const name = input.value.trim();
+      const existingNames = Array.from(document.querySelectorAll('.member-box span:first-child')).map(span => span.textContent);
+
+      if (name !== '' && !existingNames.includes(name) && totalMembers < 15) {
+        const lst = document.createElement('div');
+        lst.innerHTML = `<span>${name}</span><span class="remove-btn">×</span>`;
+
+        const removeBtn = lst.querySelector('.remove-btn');
+        removeBtn.addEventListener('click', () => {
+          lst.remove();
+          totalMembers--;
+          totalDisplay.textContent = `Total Members: ${totalMembers}`;
+          if (totalMembers < 15) {
+            addBtn.disabled = false;
+            addBtn.style.opacity = 1;
+          }
+        });
+
+        document.querySelector('.member-box').appendChild(lst);
+        input.value = '';
+        totalMembers++;
+        totalDisplay.textContent = `Total Members: ${totalMembers}`;
+
+        if (totalMembers === 15) {
+          addBtn.disabled = true;
+          addBtn.style.opacity = 0.5;
+        }
+      } else if (existingNames.includes(name)) {
+        alert("This name is already added.");
+      } else if (totalMembers >= 15) {
+        alert("Maximum 15 players allowed.");
+      }
+    });
+
+    // Particle Background
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray = [];
+
+    const mouse = {
+      x: null,
+      y: null,
+      radius: 130
+    };
+
+    window.addEventListener('mousemove', e => {
+      mouse.x = e.x;
+      mouse.y = e.y;
+    });
+
+    class Particle {
+      constructor(x, y, dirX, dirY, size, color) {
+        this.x = x;
+        this.y = y;
+        this.dirX = dirX;
+        this.dirY = dirY;
+        this.size = size;
+        this.baseSize = size;
+        this.color = color;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 15;
+        ctx.fillStyle = this.color;
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      update() {
+        if (this.x + this.size > canvas.width || this.x - this.size < 0) this.dirX = -this.dirX;
+        if (this.y + this.size > canvas.height || this.y - this.size < 0) this.dirY = -this.dirY;
+
+        this.x += this.dirX;
+        this.y += this.dirY;
+
+        let dx = mouse.x - this.x;
+        let dy = mouse.y - this.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < mouse.radius && this.size < 8) {
+          this.size += 0.4;
+        } else if (this.size > this.baseSize) {
+          this.size -= 0.2;
+          if (this.size < this.baseSize) this.size = this.baseSize;
+        }
+
+        this.draw();
+      }
+    }
+
+    function init() {
+      particlesArray = [];
+      let num = (canvas.height * canvas.width) / 9000;
+      for (let i = 0; i < num; i++) {
+        let size = Math.random() * 2 + 1;
+        let x = Math.random() * (canvas.width - size * 2);
+        let y = Math.random() * (canvas.height - size * 2);
+        let dirX = (Math.random() - 0.5) * 1.2;
+        let dirY = (Math.random() - 0.5) * 1.2;
+        let r = Math.floor(Math.random() * 200 + 55);
+        let g = Math.floor(Math.random() * 200 + 55);
+        let b = Math.floor(Math.random() * 200 + 55);
+        let color = `rgba(${r},${g},${b},0.8)`;
+        particlesArray.push(new Particle(x, y, dirX, dirY, size, color));
+      }
+    }
+
+    function connectLines() {
+      for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a + 1; b < particlesArray.length; b++) {
+          let dx = particlesArray[a].x - particlesArray[b].x;
+          let dy = particlesArray[a].y - particlesArray[b].y;
+          let distance = dx * dx + dy * dy;
+
+          if (distance < 16000) {
+            let opacity = 1 - distance / 16000;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255,255,255,${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => p.update());
+      connectLines();
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+      init();
+    });
+
+    init();
+    animate();
+  </script>
+</body>
+</html>
