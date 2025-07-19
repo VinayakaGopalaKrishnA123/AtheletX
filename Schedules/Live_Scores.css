@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: black;
+  color: #fff;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  background-color: #1e1e1e;
+  padding: 20px;
+  margin: 0;
+  color: White;
+}
+
+.scroll-container {
+  margin-left: 300px;
+  margin-right: 300px;
+  display: flex;
+  overflow-x: auto;
+  height: calc(100vh - 70px); 
+  scroll-behavior: smooth;
+  padding: 0 10px;
+  /* gap: 30px; */
+}
+
+.scoreboard {
+  width: 750px;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  box-shadow: 5px 5px 30px rgba(207, 199, 199, 0.884);
+  background: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+  border-radius: 10px;
+  padding: 25px;
+  width: 100%;
+  max-width: 500px;
+  /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.05); */
+  text-align: center;
+  backdrop-filter: blur(12px); /* Glass effect */
+  -webkit-backdrop-filter: blur(12px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+
+
+.card h2 {
+  margin-bottom: 20px;
+  color: White;
+  font-size: 35px;
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.team {
+  flex: 1;
+  text-align: center;
+}
+
+.team-name {
+  background-color: #1DB954;
+  color: white;
+  padding: 5px 50px;
+  border-radius: 5px;
+}
+
+.score {
+  font-size: 2rem;
+  color: #509BF5;
+  font-weight: bold;
+}
+
+.status {
+  margin-top: 10px;
+  color: #ffc107;
+}
