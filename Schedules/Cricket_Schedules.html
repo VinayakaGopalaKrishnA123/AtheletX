@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cricket Tournament Schedule</title>
+  <link rel="stylesheet" href="Schedules.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="logo">Sports Schedules</div>
+    <nav class="nav-links">
+      <a href="Schedules.html">Cricket</a>
+      <a href="kabbadi_schedule.html">Kabbadi</a>
+      <a href="chess_schedule.html">Chess</a>
+      <a href="no_schedule.html">Volleyball</a>
+      <a href="no_schedule.html">Basketball</a>
+    </nav>
+  </header>
+  <h1>Cricket Tournament Schedule</h1>
+  <br />
+
+  <div class="schedule">
+
+    <div class="match-box">
+      <div class="match-header">Match 1 | 15 July, 10:00 AM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 1 won by 45 runs</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+    <div class="match-box">
+      <div class="match-header">Match 2 | 16 July, 3:00 PM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 1 won by 5 wickets</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+    <div class="match-box">
+      <div class="match-header">Match 3 | 17 July, 11:00 AM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 2 won by 30 runs</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+    <div class="match-box">
+      <div class="match-header">Match 4 | 18 July, 4:00 PM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 2 won by 3 wickets</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+    <div class="match-box">
+      <div class="match-header">Match 5 | 19 July, 9:00 AM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 2 won by 60 runs</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+    <div class="match-box">
+      <div class="match-header">Match 6 | 20 July, 2:00 PM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 1 won by 2 wickets</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+    <div class="match-box">
+      <div class="match-header">Match 7 | 21 July, 1:00 PM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 1 won by 10 runs</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+    <div class="match-box">
+      <div class="match-header">Match 8 | 22 July, 5:00 PM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 1 won by 20 runs</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+    <div class="match-box">
+      <div class="match-header">Match 9 | 23 July, 10:00 AM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 2 won by 7 wickets</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+    <div class="match-box">
+      <div class="match-header">Match 10 | 24 July, 6:00 PM</div>
+      <div class="teams">
+        <div class="team team-left">Team 1</div>
+        <div class="result">Team 2 won by 15 runs</div>
+        <div class="team team-right">Team 2</div>
+      </div>
+    </div>
+
+  </div>
+  <canvas id="particles"></canvas>
+</body>
+<script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+</script>
+</html>
