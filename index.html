@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aditya Sports Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <div class="video-con">
+    <video autoplay muted loop>
+      <source src="Dpfinal.mp4" type="video/mp4">
+    </video>
+  </div>
+
+ 
+  <canvas id="hoverCanvas"></canvas>
+
+ 
+  <nav class="navbar navbar-expand-lg glass-navbar px-4 py-3" id="hoverTarget" style="position: absolute; top: 0; width: 100%; z-index: 10;">
+    <div class="container-fluid">
+      
+      <a class="navbar-brand" href="#">
+        <img src="dummy-removebg-preview.png" alt="Logo" width="250" height="50">
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+ 
+      <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+        <ul class="navbar-nav gap-lg-4">
+<li class="nav-item"><a href="#" onclick="event.preventDefault();" class="section_in_nav_bar">Home</a></li>
+
+          <li class="nav-item"><a class="section_in_nav_bar" href="#">Notifications</a></li>
+          <li class="nav-item"><a class="section_in_nav_bar" href="#">Registrations</a></li>
+          <li class="nav-item"><a class="section_in_nav_bar" href="#">Schedules & Live Scores</a></li>
+          <li class="nav-item"><a class="section_in_nav_bar" href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="notification-box" id="notificationBox">
+    <span class="close-btn" onclick="closeNotification()">&times;</span>
+    <h3 class="centered-notification">🔔 New Notification</h3>
+    <br>
+    <p>Registrations for <strong>Cricket</strong> are live now!<br>
+    Head to the registrations section to participate in the tournament.</p>
+  </div>
+
+  
+  <div style="height: 100vh; background-color: black; padding: 40px;">
+    <section class="section">
+
+<div class="section-container">
+  <div class="section-image">
+    <img src="ground1.jpg" alt="Outdoor Practice Area">
+  </div>
+  <div class="text-section">
+    <h2>  Outdoor Practice Facilities</h2>
+    <p>  This platform showcases spacious and secure outdoor netted practice zones.</p>
+    <p>  These areas are ideal for various sports training sessions and drills.</p>
+    <p> The netting setup ensures safety and helps minimize disruptions during practice.</p>
+    <p> Participants can use these spaces for warm-ups, skill-building, and coaching sessions.</p>
+    <p>The layout promotes teamwork, consistency, and athletic growth.</p>
+    <p> Facilities are maintained regularly to support top-notch playing conditions.</p>
+  </div>
+</div>
+<hr class="section-divider" />
+
+<div class="section-container reverse">
+  <div class="section-image">
+    <img src="Ground2.jpg" alt="Indoor Training Zone">
+  </div>
+  <div class="text-section">
+   <h2>Outdoor Athletic Arena</h2>
+<p>This well-laid-out arena provides a spacious environment for track and field activities.</p>
+<p>The multi-lane track is ideal for sprints, long-distance runs, and relay practices.</p>
+<p>It serves as a central space for warm-ups, athletic drills, and group training sessions.</p>
+<p>The clearly marked lanes promote discipline, timing, and sportsmanship.</p>
+<p>Whether it's routine practice or sports meet preparation, this ground supports it all.</p>
+<p>Maintained with care, the facility ensures a safe and performance-driven experience for athletes.</p>
+
+  </div>
+</div>
+<hr class="section-divider" />
+<!-- SECTION 3: Image Left, Text Right -->
+<div class="section-container">
+  <div class="section-image">
+    <img src="Ground3.jpg" alt="Multi-Sports Arena" >
+  </div>
+  <div class="text-section">
+    <h2>Multi-Sports Arena</h2>
+    <p>Explore our conceptual multi-sports arena designed to host a wide range of games and events.</p>
+    <p>From basketball and volleyball to futsal and skating — this mockup gives a versatile look at possibilities.</p>
+    <p>Flexible arrangements enable quick setup changes depending on event or sport requirements.</p>
+    <p>This demo illustrates how front-end design can visualize large sports facilities effectively.</p>
+    <p>Interactive layouts and media galleries can be integrated for a richer digital experience.</p>
+    <p>Built for performance, community, and scalable infrastructure planning.</p>
+  </div>
+</div>
+
+
+
+  <!-- Scripts -->
+<script>
+  // Close Notification Box
+  function closeNotification() {
+    const box = document.getElementById('notificationBox');
+    box.style.display = 'none';
+  }
+
+  setTimeout(closeNotification, 10000);
+
+  // Particle Canvas Setup
+  const canvas = document.getElementById("hoverCanvas");
+  const ctx = canvas.getContext("2d");
+  const navbar = document.getElementById("hoverTarget");
+
+  function positionCanvasOverNavbar() {
+    const rect = navbar.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    canvas.style.position = 'absolute';
+    canvas.style.top = rect.top + 'px';
+    canvas.style.left = rect.left + 'px';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = 11;
+  }
+
+  positionCanvasOverNavbar();
+  window.addEventListener("resize", positionCanvasOverNavbar);
+
+  let particles = [];
+  const colors = ["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#EFB0FF", "#00FFFF"];
+
+  class Particle {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.size = Math.random() * 2 + 1;
+      this.speedX = (Math.random() - 0.5) * 3;
+      this.speedY = (Math.random() - 0.5) * 3;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.alpha = 1;
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.alpha -= 0.02;
+    }
+
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = this.alpha;
+      ctx.fillStyle = this.color;
+      ctx.shadowColor = this.color;
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function handleParticles() {
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+      if (particles[i].alpha <= 0) {
+        particles.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    handleParticles();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  navbar.addEventListener("mousemove", (e) => {
+    const rect = navbar.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+    for (let i = 0; i < 8; i++) {
+      particles.push(new Particle(offsetX, offsetY));
+    }
+  });
+
+  // Re-position canvas every few seconds in case layout changes
+  setInterval(() => {
+    positionCanvasOverNavbar();
+  }, 2000);
+</script>
+
+
+
+</section>
+<hr class="footer-divider" />
+</body>
+<footer class="bottom-footer">
+  <div class="footer-left">
+  <p>
+    © CopyRight All Rights Reserved by <strong>Aditya University</strong> &nbsp;
+    <span class="powered">Powered By 
+        <a href="https://maya.technicalhub.io/" target="_blank">
+       <img src="Thub.webp" alt="Technical Hub" class="th-logo"></span> </a>
+  </p>
+</div>
+
+
+  <div class="footer-right">
+    <div class="social-icons">
+       <a href="https://www.linkedin.com/school/adityauniversity/" target="_blank" class="footer-icon"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://wa.me/919989776661" target="_blank" class="footer-icon"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://x.com/adityauniv" target="_blank" class="footer-icon"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/aditya_university/" target="_blank" class="footer-icon"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@adityauniversity" target="_blank" class="footer-icon"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.facebook.com/adityauniversity9" target="_blank" class="footer-icon"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+</html>
