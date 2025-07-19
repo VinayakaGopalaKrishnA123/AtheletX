@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="forms.css">
+    <title>Foot Ball Registration Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Foot Ball Registration Form</h1>
+        <form>
+            <table>
+                <tr>
+                    <td><label>Team Name</label></td>
+                    <td><input type="text"  placeholder="Enter team name" required /></td>
+                </tr>
+                <tr>
+                    <td><label>Branch</label></td>
+                    <td>
+                        <select id="branch" required>
+                        <option value="" disabled selected hidden>Select branch</option>
+                        <option value="CSE">CSE</option>
+                        <option value="AIML">AIML</option>
+                        <option value="IT">IT</option>
+                        <option value="DS">DS</option>
+                        <option value="ECE">ECE</option>
+                        <option value="MECH">MECH</option>
+                        <option value="Agr">Agr</option>
+                        <option value="MinE">MinE</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="year">Year of Study</label></td>
+                    <td>
+                        <select id="year" required>
+                        <option value="" disabled selected hidden>Select year</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="member-label-box">
+                       <div >
+                            <label for="memberName">Team Members</label>
+                            <p>(Max allowed players: 18)</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="member-input">
+                            <input type="text" id="memberName" placeholder="Enter member name" >
+                            <button type="button" id="addBtn">Add</button>
+                        </div>
+                        <br>
+                        <div class="member-box" id="memberList">
+                            <div class="member">
+                                Player 1 <button class="remove-btn" type="button">×</button>
+                            </div>
+                            <div class="member">
+                                Player 2 <button class="remove-btn" type="button">×</button>
+                            </div>
+                            <div class="member">
+                                Player 3 <button class="remove-btn" type="button">×</button>
+                            </div>
+                            <div class="member">
+                                Player 4 <button class="remove-btn" type="button">×</button>
+                            </div>
+                            <div class="member">
+                                Player 5 <button class="remove-btn" type="button">×</button>
+                            </div>
+                        </div>
+                        <br>
+                        <p>Total Members:5</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="submit-btn">Pay Now</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
