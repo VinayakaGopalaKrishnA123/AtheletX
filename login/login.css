@@ -1,0 +1,52 @@
+body{
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Roboto', sans-serif;
+}
+.logo{
+    padding: 10px;
+}
+.krida{
+    font-size: 50px;
+    color: yellow;
+    font-weight: bold;
+}
+.verse{
+    font-size: 50px;
+    color: #fff;
+    font-weight: normal;
+    animation:glow 3s ease-in-out infinite;
+}
+.login-container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 2s;
+}   
+@keyframes glow{
+    0%, 100% {
+        text-shadow: none;
+    }
+      50% {
+        text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+      }
+}
+@keyframes fadeIn {
+    
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
