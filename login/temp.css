@@ -11,7 +11,8 @@ body{
 }
 .logo{
     padding: 10px;
-    animation: up 4s ease-in-out 0s 1;
+    transform:translateY(50px);
+    animation: up 2s ease-in-out 2s 1;
 }
 .krida{
     font-size: 50px;
@@ -22,7 +23,7 @@ body{
     font-size: 50px;
     color: #fff;
     font-weight: normal;
-    animation:glow 2s ease-in-out infinite;
+    animation:glow 3s ease-in-out infinite;
 }
 .login-container {
     background: rgba(255, 255, 255, 0.8);
@@ -33,8 +34,8 @@ body{
     text-align: center;
     opacity: 0;
     
-    animation: fadeIn 0.5s ease-in-out forwards;
-    animation-delay: 4s;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 10s;
 }   
 @keyframes glow{
     0%, 100% {
@@ -46,9 +47,6 @@ body{
 }
 @keyframes up{
     0% {
-        transform: translateY(50px);
-    }
-    50%{
         transform: translateY(50px);
     }
     100% {
