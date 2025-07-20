@@ -23,6 +23,33 @@
         </div>
         <button type="submit">Login</button>
       </form>
+      <div class="login-register-slider">
+        <div class="slider-glass"></div>
+        <div class="login-slide">Login</div>
+        <div  class="register-slide">Register</div>
+      </div>
     </div>
+    <script>
+  const slider = document.querySelector('.login-register-slider');
+  const glass = document.querySelector('.slider-glass');
+  const login = document.querySelector('.login-slide');
+  const register = document.querySelector('.register-slide');
+
+  function moveGlass(target) {
+    const targetRect = target.getBoundingClientRect();
+    const sliderRect = slider.getBoundingClientRect();
+
+    glass.style.width = `${targetRect.width}px`;
+    glass.style.height = `${targetRect.height}px`;
+    glass.style.left = `${targetRect.left - sliderRect.left}px`;
+    glass.style.top = `${targetRect.top - sliderRect.top}px`;
+  }
+
+  login.onclick = () => moveGlass(login);
+  register.onclick = () => moveGlass(register);
+
+  window.onload = () => moveGlass(login);
+</script>
+
   </body>
 </html>

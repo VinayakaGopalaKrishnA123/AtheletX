@@ -28,14 +28,58 @@ body{
     background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
     opacity: 0;
-    
+    gap: 20px;
     animation: fadeIn 0.5s ease-in-out forwards;
     animation-delay: 4s;
 }   
+.login-register-slider {
+  position: relative;
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  width: fit-content;
+  margin: 100px auto;
+  gap: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.login-slide,
+.register-slide {
+  position: relative;
+  z-index: 1;
+  padding: 12px 40px;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.slider-glass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  opacity:0.2px;
+  z-index: 0;
+}
+
+
+
 @keyframes glow{
     0%, 100% {
         text-shadow: none;
