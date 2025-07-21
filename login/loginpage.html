@@ -11,8 +11,8 @@
         <span class="verse">Verse</span>
     </div>
     <div class="login-container">
-      <form action="#" method="post">
-        <h2>Login</h2>
+      <form class="login-form">
+        <h2 class="login-form-heading">Login</h2>
         <div class="input-group">
           <label for="username">Username</label>
           <input type="text" id="username" name="username" required>
@@ -21,7 +21,7 @@
           <label for="password">Password</label>
           <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" class="login-form-button">Login</button>
       </form>
       <div class="login-register-slider">
         <div class="slider-glass"></div>
@@ -30,26 +30,31 @@
       </div>
     </div>
     <script>
-  const slider = document.querySelector('.login-register-slider');
-  const glass = document.querySelector('.slider-glass');
-  const login = document.querySelector('.login-slide');
-  const register = document.querySelector('.register-slide');
+      const slider = document.querySelector('.login-register-slider');
+      const glass = document.querySelector('.slider-glass');
+      const login = document.querySelector('.login-slide');
+      const register = document.querySelector('.register-slide');
 
-  function moveGlass(target) {
-    const targetRect = target.getBoundingClientRect();
-    const sliderRect = slider.getBoundingClientRect();
+      function moveGlass(target) {
+        const targetRect = target.getBoundingClientRect();
+        const sliderRect = slider.getBoundingClientRect();
 
-    glass.style.width = `${targetRect.width}px`;
-    glass.style.height = `${targetRect.height}px`;
-    glass.style.left = `${targetRect.left - sliderRect.left}px`;
-    glass.style.top = `${targetRect.top - sliderRect.top}px`;
-  }
+        glass.style.width = `${targetRect.width}px`;
+        glass.style.height = `${targetRect.height}px`;
+        glass.style.left = `${targetRect.left - sliderRect.left}px`;
+        glass.style.top = `${targetRect.top - sliderRect.top}px`;
+        const logbutton = document.querySelector('.login-form-button');
+        const logheading = document.querySelector('.login-form-heading');
+        logbutton.innerText = target.innerText === 'Login' ? 'Login' : 'Register';
+        logheading.innerText = target.innerText === 'Login' ? 'Login' : 'Register';
+      }
+      
+      login.onclick = () => moveGlass(login);
+      register.onclick = () => moveGlass(register);
 
-  login.onclick = () => moveGlass(login);
-  register.onclick = () => moveGlass(register);
+      window.onload = () => moveGlass(login);
 
-  window.onload = () => moveGlass(login);
-</script>
+    </script>
 
   </body>
 </html>
