@@ -36,10 +36,19 @@ body{
     width: 300px;
     text-align: center;
     opacity: 0;
+    color:#00c6ff;
     /* gap: 20px; */
     animation: fadeIn 0.5s ease-in-out forwards;
     animation-delay: 4s;
 }   
+.input-group {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   margin-bottom: 15px;
+   position: relative;
+}
 .login-register-slider {
   position: relative;
   display: flex;
@@ -84,6 +93,29 @@ body{
     align-items: center;
     gap:20px;
 }
+.login-form-button{
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+#username,#password {
+    width: 70%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+
 
 
 @keyframes glow{

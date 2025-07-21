@@ -14,11 +14,11 @@
       <form class="login-form">
         <h2 class="login-form-heading">Login</h2>
         <div class="input-group">
-          <label for="username">Username</label>
+          <label for="username">Username: </label>
           <input type="text" id="username" name="username" required>
         </div>
         <div class="input-group">
-          <label for="password">Password</label>
+          <label for="password">Password: </label>
           <input type="password" id="password" name="password" required>
         </div>
         <button type="submit" class="login-form-button">Login</button>
@@ -30,15 +30,23 @@
       </div>
     </div>
     <script>
+      // Prevent back and forward button
+      history.pushState(null, null, location.href);
+      window.onpopstate = function () {
+        history.pushState(null, null, location.href);
+      };
+      
+      // Slider functionality
       const slider = document.querySelector('.login-register-slider');
       const glass = document.querySelector('.slider-glass');
       const login = document.querySelector('.login-slide');
       const register = document.querySelector('.register-slide');
-
+      let mode=0; // 0 for login, 1 for register
       function moveGlass(target) {
+        
         const targetRect = target.getBoundingClientRect();
         const sliderRect = slider.getBoundingClientRect();
-
+        
         glass.style.width = `${targetRect.width}px`;
         glass.style.height = `${targetRect.height}px`;
         glass.style.left = `${targetRect.left - sliderRect.left}px`;
@@ -47,12 +55,55 @@
         const logheading = document.querySelector('.login-form-heading');
         logbutton.innerText = target.innerText === 'Login' ? 'Login' : 'Register';
         logheading.innerText = target.innerText === 'Login' ? 'Login' : 'Register';
+        mode= target.innerText === 'Login' ? 0 : 1;
+        document.querySelector('.login-form').reset();
       }
       
       login.onclick = () => moveGlass(login);
       register.onclick = () => moveGlass(register);
+      window.onload = () => {
+        moveGlass(login);
+        mode=0;
+      }
+      // Login and Register functionality
+      const loginregbutton = document.querySelector('.login-form-button');
+      loginregbutton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        username.trim();
+        password.trim();
+         if (!username || !password) {
+          alert('Please fill in both fields.');
+          return;
+      }
+        if (mode === 0) {
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          const matchedUser = users.find(
+            user => user.username === username && user.password === password
+          );
 
-      window.onload = () => moveGlass(login);
+          if (matchedUser) {
+            alert("Login successful!");
+             window.location.href = "../home/index.html";
+          } 
+          else {
+            alert("Invalid username or password.");
+          }
+        } else {
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          const userExists = users.some(user => user.username === username);
+
+          if (userExists) {
+            alert("Username already exists.");
+          } 
+          else {
+            users.push({ username, password });
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("Registration successful!");
+          }
+        }
+      });
 
     </script>
 
