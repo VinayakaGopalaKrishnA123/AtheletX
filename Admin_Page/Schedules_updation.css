@@ -1,0 +1,94 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #00ffcc;
+}
+
+.selector-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 20px 0;
+}
+
+.selector-box {
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #111;
+  text-align: center;
+  width: 220px;
+  transition: 0.3s;
+}
+
+.selector-box:hover {
+  background: #222;
+}
+
+.selected {
+  border-color: #00ffcc;
+  background-color: #222;
+}
+
+.form-section.glass {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+select, input, button {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.match-block {
+  border: 1px solid #555;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+  background: #222;
+}
+
+button {
+  background: #00ffcc;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00ccaa;
+}

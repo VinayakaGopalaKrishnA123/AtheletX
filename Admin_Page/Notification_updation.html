@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Notification Update</title>
+    <link rel="stylesheet" href="Notification_updation.css">
+</head>
+<body>
+
+<div class="glass-background">
+    <h2>Post New Notification</h2>
+
+    <label for="heading">Notification Heading:</label>
+    <input type="text" id="heading" placeholder="Enter heading here" required>
+
+    <label for="message">Notification Content:</label>
+    <textarea id="message" rows="6" placeholder="Enter full notification info here" required></textarea>
+
+    <label for="pdf">Attach PDF (optional):</label>
+    <input type="file" id="pdf" accept=".pdf">
+
+    <label for="link">Optional Link (Will show as button on user page):</label>
+    <input type="url" id="link" placeholder="https://example.com">
+
+    <button onclick="saveNotification()">Save Notification</button>
+</div>
+<script src="Notification_updation.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+  <title>Admin - Schedule Updation</title>
+  <link rel="stylesheet" href="Schedules_updation.css">
+</head>
+<body>
+  <div class="container">
+      <h2>Update Tournament Schedule</h2>
+      <br><br>
+      <div class="selector-container">
+        <div class="selector-box" id="newSelector" onclick="selectAction('new')">➕ Add New Tournament</div>
+        <div class="selector-box" id="existingSelector" onclick="selectAction('existing')">🛠️ Update Existing Tournament</div>
+      </div>
+      <div id="newTournamentForm" class="form-section glass" style="display:none;">
+          <label>Tournament Name:</label><br>
+          <input type="text" id="tournamentName" placeholder="Enter tournament name"><br>
+          <label>Number of Matches:</label><br>
+          <input type="number" id="matchCount" min="1" onchange="generateMatchInputs()" placeholder="Enter number of matches"><br>
+          <div id="matchInputs"></div>
+          <button onclick="saveNewTournament()">Save Changes</button>
+      </div>
+      <div id="existingTournamentForm" class="form-section glass" style="display:none;">
+        <label>Select Live Tournament:</label><br>
+        <select id="liveTournamentSelect" onchange="loadExistingMatches()">
+          <option value="">-- Choose --</option>
+          <option value="summer_cup">Cricket Tournament</option>
+          <option value="monsoon_league">kabbadi Tournament</option>
+        </select>
+        <div id="existingMatchesContainer"></div>
+        <div id="addMoreSection" style="display:none;">
+          <label>Add More Matches:</label><br>
+          <input type="number" id="addMatchCount" min="1" placeholder="Enter number of additional matches"><br>
+          <button onclick="addMoreMatches()">Generate</button>
+          <div id="additionalMatchInputs"></div>
+        </div>
+        <button onclick="saveExistingTournament()">Save Changes</button>
+    </div>
+  </div>
+<script src="Schedules_updation.js"></script>
+</body>
+</html>

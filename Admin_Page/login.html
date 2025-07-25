@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            width: 300px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        .glass-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .glass-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .glass-container input::placeholder {
+            color: #ccc;
+        }
+
+        .glass-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #00bcd4;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .glass-container button:hover {
+            background-color: #0097a7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+    <script>
+        function login() {
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            if (u==='admin'&&p==='1234') {
+                window.location.href = "index.html"; 
+            } else {
+                alert("Invalid credentials. Try again.");
+            }
+        }
+    </script>
+
+</body>
+</html>
