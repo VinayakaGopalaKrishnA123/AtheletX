@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (name !== '' && !existingNames.includes(name) && totalMembers < limits.max) {
       const lst = document.createElement('div');
-      lst.innerHTML = `<span>${name}</span><span class="remove-btn">×</span>`;
+      lst.innerHTML = `<span>${name}</span><span class="remove-btn">&#x274C;</span>`;
 
       lst.querySelector('.remove-btn').addEventListener('click', () => {
         lst.remove();
