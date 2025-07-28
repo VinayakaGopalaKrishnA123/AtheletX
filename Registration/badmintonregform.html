@@ -1,76 +1,51 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="forms.css">
-    <title>Badminton Registration Form</title>
+  <meta charset="UTF-8" />
+  <title>Badminton Registration Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="forms.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Badminton Registration Form</h1>
-        <form>
-            <table>
-                <tr>
-                    <td><label>Team Name</label></td>
-                    <td><input type="text"  placeholder="Enter team name" required /></td>
-                </tr>
-                <tr>
-                    <td><label>Branch</label></td>
-                    <td>
-                        <select id="branch" required>
-                        <option value="" disabled selected hidden>Select branch</option>
-                        <option value="CSE">CSE</option>
-                        <option value="AIML">AIML</option>
-                        <option value="IT">IT</option>
-                        <option value="DS">DS</option>
-                        <option value="ECE">ECE</option>
-                        <option value="MECH">MECH</option>
-                        <option value="Agr">Agr</option>
-                        <option value="MinE">MinE</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="year">Year of Study</label></td>
-                    <td>
-                        <select id="year" required>
-                        <option value="" disabled selected hidden>Select year</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="member-label-box">
-                       <div >
-                            <label for="memberName">Team Members</label>
-                            <p>(Max allowed players: 2)</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="member-input">
-                            <input type="text" id="memberName" placeholder="Enter member name" >
-                            <button type="button" id="addBtn">Add</button>
-                        </div>
-                        <br>
-                        <div class="member-box" id="memberList">
-                            <div class="member">
-                                Player 1 <button class="remove-btn" type="button">×</button>
-                            </div>
-                        </div>
-                        <br>
-                        <p>Total Members:1</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button type="submit" class="submit-btn">Pay Now</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+  <canvas id="particles"></canvas>
+  <div class="container">
+    <h1>Badminton Registration Form</h1>
+    <p>The world's most popular team sport played with a round ball.</p>
+    <form>
+      <div class="form-group">
+        <label>Team Name</label>
+        <input type="text" placeholder="Enter team name" required />
+      </div>
+      <div class="form-group">
+        <label>Branch</label>
+        <select required>
+          <option value="" disabled selected hidden>Select branch</option>
+          <option value="CSE">CSE</option>
+          <option value="IT">IT</option>
+          <option value="ECE">ECE</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Year of Study</label>
+        <select required>
+          <option value="" disabled selected hidden>Select year</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Team Members <small>(Max 11)</small></label>
+        <div class="member-input">
+          <input type="text" class="memberName" placeholder="Enter member name" />
+          <button type="button" class="addBtn">Add</button>
+        </div>
+        <div class="member-box"></div>
+        <p class="total-members">Total Members: 0</p>
+      </div>
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </div>
+  <script src="../common/common.js" ></script>
 </body>
 </html>

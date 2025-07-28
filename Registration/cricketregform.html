@@ -1,177 +1,51 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cricket Registration Form</title>
-    <link rel="stylesheet" href="forms.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: #f9f9f9;
-        }
-        .container {
-            max-width: 500px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        input[type="text"], select {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        .member-input {
-            display: flex;
-            gap: 10px;
-        }
-        .member-input input {
-            flex: 1;
-        }
-        .addBtn {
-            padding: 8px 12px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .addBtn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        .submit-btn {
-            width: 100%;
-            padding: 10px;
-            background: green;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .member-box {
-            margin-top: 10px;
-        }
-        .total-members {
-            margin-top: 5px;
-            font-size: 14px;
-            color: #555;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Cricket Registration Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="forms.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Cricket Registration Form</h1>
-        <form>
-            <div class="form-group">
-                <label>Team Name</label>
-                <input type="text" placeholder="Enter team name" required />
-            </div>
-
-            <div class="form-group">
-                <label>Branch</label>
-                <select id="branch" required>
-                    <option value="" disabled selected hidden>Select branch</option>
-                    <option value="CSE">CSE</option>
-                    <option value="AIML">AIML</option>
-                    <option value="IT">IT</option>
-                    <option value="DS">DS</option>
-                    <option value="ECE">ECE</option>
-                    <option value="MECH">MECH</option>
-                    <option value="Agr">Agr</option>
-                    <option value="MinE">MinE</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="year">Year of Study</label>
-                <select id="year" required>
-                    <option value="" disabled selected hidden>Select year</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="memberName">Team Members <small>(Max 15)</small></label>
-                <div class="member-input">
-                    <input type="text" class="memberName" placeholder="Enter member name" />
-                    <button type="button" class="addBtn">Add</button>
-                </div>
-                <div class="member-box"></div>
-                <p class="total-members">Total Members: 0</p>
-            </div>
-
-            <button type="submit" class="submit-btn">Register</button>
-        </form>
-    </div>
-
-    <script>
-        let totalMembers = 0;
-        const totalDisplay = document.querySelector('.total-members');
-        const addBtn = document.querySelector('.addBtn');
-
-        addBtn.addEventListener('click', () => {
-            const input = document.querySelector('.memberName');
-            const name = input.value.trim();
-            const existingNames = Array.from(document.querySelectorAll('.member-box span:first-child')).map(span => span.textContent);
-
-            if (name !== '' && !existingNames.includes(name) && totalMembers < 15) {
-                const lst = document.createElement('div');
-                lst.innerHTML = `<span>${name}</span><span class="remove-btn"> x</span>`;
-
-                lst.style.padding = '6px 10px';
-                lst.style.backgroundColor = '#f0f0f0';
-                lst.style.marginBottom = '6px';
-                lst.style.borderRadius = '5px';
-                lst.style.display = 'inline-block';
-                lst.style.fontFamily = 'sans-serif';
-
-                const removeBtn = lst.querySelector('.remove-btn');
-                removeBtn.style.color = 'red';
-                removeBtn.style.cursor = 'pointer';
-                removeBtn.style.marginLeft = '10px';
-
-                removeBtn.addEventListener('click', () => {
-                    lst.remove();
-                    totalMembers--;
-                    totalDisplay.textContent = `Total Members: ${totalMembers}`;
-                    if (totalMembers < 15) {
-                        addBtn.disabled = false;
-                        addBtn.style.opacity = 1;
-                    }
-                });
-
-                document.querySelector('.member-box').appendChild(lst);
-                input.value = '';
-                totalMembers++;
-                totalDisplay.textContent = `Total Members: ${totalMembers}`;
-
-                if (totalMembers === 15) {
-                    addBtn.disabled = true;
-                    addBtn.style.opacity = 0.5;
-                }
-            } else if (existingNames.includes(name)) {
-                alert("This name is already added.");
-            } else if (totalMembers >= 15) {
-                alert("Maximum 15 players allowed.");
-            }
-        });
-    </script>
+  <canvas id="particles"></canvas>
+  <div class="container">
+    <h1>Cricket Registration Form</h1>
+    <p>The world's most popular team sport played with a round ball.</p>
+    <form>
+      <div class="form-group">
+        <label>Team Name</label>
+        <input type="text" placeholder="Enter team name" required />
+      </div>
+      <div class="form-group">
+        <label>Branch</label>
+        <select required>
+          <option value="" disabled selected hidden>Select branch</option>
+          <option value="CSE">CSE</option>
+          <option value="IT">IT</option>
+          <option value="ECE">ECE</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Year of Study</label>
+        <select required>
+          <option value="" disabled selected hidden>Select year</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Team Members <small>(Max 11)</small></label>
+        <div class="member-input">
+          <input type="text" class="memberName" placeholder="Enter member name" />
+          <button type="button" class="addBtn">Add</button>
+        </div>
+        <div class="member-box"></div>
+        <p class="total-members">Total Members: 0</p>
+      </div>
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </div>
+  <script src="../common/common.js"></script>
 </body>
 </html>
