@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   const title = document.title.toLowerCase();
-
-  // Define limits for each sport based on title
   const playerLimits = {
     cricket: { min: 5, max: 15 },
     football: { min: 7, max: 11 },
@@ -11,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     basketball: { min: 5, max: 10 },
     hockey: { min: 7, max: 16 }
   };
-
-  // Find the sport key based on title
   const sportKey = Object.keys(playerLimits).find(key => title.includes(key));
   const limits = playerLimits[sportKey] || { min: 1, max: 15 };
   const sportName = sportKey?.charAt(0).toUpperCase() + sportKey?.slice(1) || 'Sport';
