@@ -1,95 +1,97 @@
-const matches = {
-        cricket15: {
-            sport: 'cricket',
-            team1: 'Team A',
-            team2: 'Team B',
-            score1: '123/4',
-            score2: '119/2',
-            overs: '15.2'
-        },
-        kabaddi1: {
-            sport: 'kabaddi',
-            team1: 'Raiders',
-            team2: 'Warriors',
-            score1: 32,
-            score2: 27,
-            time: '12:34'
-        },
-        football2: {
-            sport: 'football',
-            team1: 'Tigers',
-            team2: 'Lions',
-            score1: 1,
-            score2: 2,
-            time: 78
-        }
-    };
+window.onload = populateTodaysMatches;
+function populateTodaysMatches() {
+  const dropdown = document.getElementById('match');
+  dropdown.innerHTML = `<option value="">-- Select Match --</option>`;
 
-    function loadMatchData() {
-        const selectedMatch = document.getElementById('match').value;
-        const container = document.getElementById('matchFields');
-        const sportFields = document.getElementById('sportFields');
-        sportFields.innerHTML = '';
+  const tournaments = JSON.parse(localStorage.getItem('tournaments')) || {};
+  const today = new Date().toISOString().split('T')[0];
 
-        if (!selectedMatch) {
-            container.style.display = 'none';
-            return;
-        }
+  for (const sport in tournaments) {
+    tournaments[sport].forEach((match, index) => {
+      if (match.date === today) {
+        const option = document.createElement('option');
+        option.value = `${sport}_${index}`;
+        option.textContent = `${capitalize(sport)} - ${match.team1} vs ${match.team2}`;
+        dropdown.appendChild(option);
+      }
+    });
+  }
+}
 
-        const match = matches[selectedMatch];
-        container.style.display = 'block';
-        document.getElementById('team1').value = match.team1;
-        document.getElementById('team2').value = match.team2;
+function loadMatchData() {
+  const selectedValue = document.getElementById('match').value;
+  const container = document.getElementById('matchFields');
+  const sportFields = document.getElementById('sportFields');
+  sportFields.innerHTML = '';
+  if (!selectedValue) return container.style.display = 'none';
 
-        if (match.sport === 'cricket') {
-            sportFields.innerHTML = `
-                <label>Team 1 Score:</label>
-                <input type="text" id="score1" value="${match.score1}">
+  const [sport, index] = selectedValue.split('_');
+  const tournaments = JSON.parse(localStorage.getItem('tournaments')) || {};
+  const match = tournaments[sport][index];
 
-                <label>Team 2 Score:</label>
-                <input type="text" id="score2" value="${match.score2}">
+  container.style.display = 'block';
+  document.getElementById('team1').value = match.team1;
+  document.getElementById('team2').value = match.team2;
 
-                <label>Overs:</label>
-                <input type="text" id="overs" value="${match.overs}">
-            `;
-        } else if (match.sport === 'kabaddi') {
-            sportFields.innerHTML = `
-                <label>Team 1 Score:</label>
-                <input type="number" id="score1" value="${match.score1}">
+  const key = `${sport}-${match.team1} vs ${match.team2}`;
+  const liveScores = JSON.parse(localStorage.getItem('live_scores')) || {};
+  const prevData = liveScores[key];
 
-                <label>Team 2 Score:</label>
-                <input type="number" id="score2" value="${match.score2}">
+  const score1 = prevData?.score1 || '';
+  const score2 = prevData?.score2 || '';
+  const extra = sport === 'cricket' ? prevData?.overs || '' : prevData?.time || '';
 
-                <label>Time Remaining (mm:ss):</label>
-                <input type="text" id="time" value="${match.time}">
-            `;
-        } else if (match.sport === 'football') {
-            sportFields.innerHTML = `
-                <label>Team 1 Score:</label>
-                <input type="number" id="score1" value="${match.score1}">
+  sportFields.innerHTML = `
+    <label>Team 1 Score:</label>
+    <input type="text" id="score1" value="${score1}">
 
-                <label>Team 2 Score:</label>
-                <input type="number" id="score2" value="${match.score2}">
+    <label>Team 2 Score:</label>
+    <input type="text" id="score2" value="${score2}">
 
-                <label>Match Time (minutes):</label>
-                <input type="number" id="time" value="${match.time}">
-            `;
-        }
-    }
+    <label>Feature:</label>
+    <input type="text" id="extra" value="${extra}">
+  `;
+}
 
-    function updateScore() {
-        const selectedMatch = document.getElementById('match').value;
-        if (!selectedMatch) return alert("Please select a match");
+function updateScore() {
+  const selectedValue = document.getElementById('match').value;
+  if (!selectedValue) return alert("Please select a match");
 
-        const updatedData = {
-            team1: document.getElementById('team1').value,
-            team2: document.getElementById('team2').value,
-            score1: document.getElementById('score1')?.value,
-            score2: document.getElementById('score2')?.value,
-            overs: document.getElementById('overs')?.value,
-            time: document.getElementById('time')?.value,
-        };
+  const [sport, index] = selectedValue.split('_');
+  const tournaments = JSON.parse(localStorage.getItem('tournaments')) || {};
+  const match = tournaments[sport][index];
 
-        console.log("Updated Data for", selectedMatch, ":", updatedData);
-        alert("Score updated! (You can send this to backend/database)");
-    }
+  // Get values from inputs
+  const team1 = document.getElementById('team1').value;
+  const team2 = document.getElementById('team2').value;
+  const score1 = document.getElementById('score1').value;
+  const score2 = document.getElementById('score2').value;
+  const extra = document.getElementById('extra').value;
+
+  // Prepare live score object
+  const liveScores = JSON.parse(localStorage.getItem('live_scores')) || {};
+  const key = `${sport}-${team1} vs ${team2}`;
+
+  const entry = {
+    team1,
+    team2,
+    score1,
+    score2,
+    feature: "1.0"
+  };
+
+  if (sport === 'cricket') {
+    entry.overs = extra;
+  } else {
+    entry.time = extra;
+  }
+
+  liveScores[key] = entry;
+  localStorage.setItem('live_scores', JSON.stringify(liveScores));
+
+  alert("Live score saved successfully!");
+}
+
+function capitalize(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}

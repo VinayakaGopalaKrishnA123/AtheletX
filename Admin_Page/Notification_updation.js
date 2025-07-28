@@ -1,14 +1,27 @@
 function saveNotification() {
-        const heading = document.getElementById('heading').value;
-        const message = document.getElementById('message').value;
-        const pdfFile = document.getElementById('pdf').files[0];
-        const link = document.getElementById('link').value;
+    const heading = document.getElementById('heading').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const link = document.getElementById('link').value.trim();
 
-        // Debug Output (Replace with backend saving logic)
-        console.log("Heading:", heading);
-        console.log("Message:", message);
-        console.log("PDF File:", pdfFile ? pdfFile.name : "No file selected");
-        console.log("Link:", link ? link : "No link provided");
-
-        alert("Notification saved (You can connect this to backend)");
+    if (!heading || !message) {
+        alert("Heading and content are required.");
+        return;
     }
+
+    const newNotification = {
+        heading: heading,
+        content: message,
+        link: link || ""
+    };
+
+    const existing = JSON.parse(localStorage.getItem('notification')) || [];
+    existing.push(newNotification);
+
+    localStorage.setItem('notification', JSON.stringify(existing));
+    alert("Notification saved successfully!");
+
+    // Optionally, clear inputs after saving
+    document.getElementById('heading').value = '';
+    document.getElementById('message').value = '';
+    document.getElementById('link').value = '';
+}

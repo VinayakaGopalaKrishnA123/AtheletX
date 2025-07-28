@@ -3,21 +3,15 @@
 <head>
     <title>Live Match Score Update</title>
     <link rel="stylesheet" href="Live_Scores_updation.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div class="glass">
     <h2>Update Live Match Score</h2>
-
-    <!-- Step 1: Select Match -->
     <label for="match">Select Live Match:</label>
     <select id="match" onchange="loadMatchData()">
         <option value="">-- Select Match --</option>
-        <option value="cricket15">Cricket - Match 15</option>
-        <option value="kabaddi1">Kabaddi - Match 1</option>
-        <option value="football2">Football - Match 2</option>
     </select>
-
-    <!-- Step 2: Match Fields -->
     <div id="matchFields" style="display:none;">
         <label>Team 1 Name:</label>
         <input type="text" id="team1">

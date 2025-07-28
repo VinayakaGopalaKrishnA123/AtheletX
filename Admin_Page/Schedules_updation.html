@@ -2,6 +2,8 @@
 <head>
   <title>Admin - Schedule Updation</title>
   <link rel="stylesheet" href="Schedules_updation.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
   <div class="container">
@@ -10,7 +12,9 @@
       <div class="selector-container">
         <div class="selector-box" id="newSelector" onclick="selectAction('new')">➕ Add New Tournament</div>
         <div class="selector-box" id="existingSelector" onclick="selectAction('existing')">🛠️ Update Existing Tournament</div>
+        <div class="selector-box" id="deleteSelector" onclick="selectAction('delete')">❌ Delete<br> Tournament</div> <!-- New -->
       </div>
+      <br><br>  
       <div id="newTournamentForm" class="form-section glass" style="display:none;">
           <label>Tournament Name:</label><br>
           <input type="text" id="tournamentName" placeholder="Enter tournament name"><br>
@@ -23,10 +27,9 @@
         <label>Select Live Tournament:</label><br>
         <select id="liveTournamentSelect" onchange="loadExistingMatches()">
           <option value="">-- Choose --</option>
-          <option value="summer_cup">Cricket Tournament</option>
-          <option value="monsoon_league">kabbadi Tournament</option>
         </select>
         <div id="existingMatchesContainer"></div>
+        <br>
         <div id="addMoreSection" style="display:none;">
           <label>Add More Matches:</label><br>
           <input type="number" id="addMatchCount" min="1" placeholder="Enter number of additional matches"><br>
@@ -35,6 +38,14 @@
         </div>
         <button onclick="saveExistingTournament()">Save Changes</button>
     </div>
+    <div id="deleteTournamentForm" class="form-section glass" style="display:none;">
+  <label>Select Tournament to Delete:</label><br>
+  <select id="deleteTournamentSelect">
+  <option value="">-- Choose --</option>
+</select>
+  <br>
+  <button onclick="deleteTournament()">Delete Tournament</button>
+</div>
   </div>
 <script src="Schedules_updation.js"></script>
 </body>

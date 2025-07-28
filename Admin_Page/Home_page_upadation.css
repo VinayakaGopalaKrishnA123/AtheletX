@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #000;
+  background-color: #040D12;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   display: flex;
@@ -18,7 +18,7 @@ body {
 .container {
   max-width: 600px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: #183D3D;
   backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 20px;
@@ -63,14 +63,28 @@ body {
   align-self: flex-end;
   padding: 10px 25px;
   font-size: 1rem;
-  background-color: #1DB954;
+  background-color: #5C8374;
   border: none;
   border-radius: 8px;
-  color: #fff;
+  color: black;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .flash-form button:hover {
   background-color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .flash-form button {
+    width: 100%;
+  }
 }

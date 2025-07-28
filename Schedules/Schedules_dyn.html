@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All Tournaments Schedule</title>
+  <link rel="stylesheet" href="Schedules.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Sports Schedules</div>
+    <nav id="navLinks" class="nav-links">
+    </nav>
+  </header>
+  <section class="schedule-section">
+    <h2 id="scheduleTitle">Select a tournament to view schedule</h2>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Team 1</th>
+          <th>Team 2</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="scheduleBody">
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    const tournaments = JSON.parse(localStorage.getItem("tournaments")) || {};
+    const navLinks = document.getElementById("navLinks");
+    const scheduleTitle = document.getElementById("scheduleTitle");
+    const scheduleBody = document.getElementById("scheduleBody");
+    Object.keys(tournaments).forEach((tournamentName, index) => {
+      const link = document.createElement("a");
+      link.href = "#";
+      link.textContent = tournamentName;
+      if(index === 0) link.classList.add("active");
+
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelectorAll(".nav-links a").forEach(a => a.classList.remove("active"));
+        link.classList.add("active");
+
+        loadSchedule(tournamentName);
+      });
+
+      navLinks.appendChild(link);
+    });
+    function loadSchedule(tournamentName) {
+      const matches = tournaments[tournamentName] || [];
+      scheduleTitle.textContent = `${tournamentName} - Match Schedule`;
+
+      scheduleBody.innerHTML = matches.length === 0
+        ? `<tr><td colspan="5" style="color: #aaa;">No matches scheduled.</td></tr>`
+        : matches.map((match, index) => `
+            <tr>
+              <td>${index + 1}</td>
+              <td>${match.team1}</td>
+              <td>${match.team2}</td>
+              <td>${formatDate(match.date)}</td>
+              <td>${formatTime(match.time)}</td>
+            </tr>
+          `).join('');
+    }
+    function formatDate(dateStr) {
+      const options = { day: '2-digit', month: 'short', year: 'numeric' };
+      return new Date(dateStr).toLocaleDateString('en-GB', options);
+    }
+    function formatTime(timeStr) {
+      const [hour, minute] = timeStr.split(":");
+      const date = new Date();
+      date.setHours(hour, minute);
+      return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+    const firstTournament = Object.keys(tournaments)[0];
+    if(firstTournament) loadSchedule(firstTournament);
+  </script>
+</body>
+</html>
