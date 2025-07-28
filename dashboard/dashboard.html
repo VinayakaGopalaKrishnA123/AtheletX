@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #2f3e46;
+      color: #cad2c5;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      background-color: #354f52;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .header h2 {
+      margin: 0;
+      color: #6bd181;
+    }
+    .logout-btn {
+      padding: 10px 18px;
+      background: #6bd181;
+      color: #2f3e46;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .logout-btn:hover {
+      background: #59c871;
+    }
+    .welcome {
+      font-size: 1.2em;
+      margin-bottom: 25px;
+      color: #cad2c5;
+    }
+    .content {
+      background-color: #52796f;
+      padding: 20px;
+      border-radius: 10px;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Dashboard</h2>
+      <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+    <div class="welcome" id="welcomeUser"></div>
+    <div class="content" id="dashboardContent">
+        <h3>Your Registered Teams</h3>
+    <div id="teamList"></div>
+</div>
+
+  </div>
+
+  <script src="../common/common.js"></script>
+  <script>
+    const username = getLoggedInUser();
+        if (!username) {
+        alert("Please login to view your dashboard.");
+        window.location.href = "../login/login.html";
+        } else {
+        document.getElementById("welcomeUser").innerText = `Welcome, ${username}!`;
+
+        const users = JSON.parse(localStorage.getItem("users") || "[]");
+        const user = users.find(u => u.username === username);
+
+        const teamList = document.getElementById("teamList");
+        if (user?.teams) {
+            Object.entries(user.teams).forEach(([sport, players]) => {
+            const teamDiv = document.createElement('div');
+            teamDiv.innerHTML = `<strong>${sport.toUpperCase()}</strong><ul>${players.map(p => `<li>${p}</li>`).join('')}</ul>`;
+            teamList.appendChild(teamDiv);
+            });
+        } else {
+            teamList.innerHTML = "<p>You haven't registered for any sports yet.</p>";
+        }
+        }
+
+  </script>
+</body>
+</html>

@@ -55,9 +55,36 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
     if (totalMembers < limits.min) {
-      e.preventDefault();
       alert(`Minimum ${limits.min} players required to register for ${sportName}.`);
+      return;
     }
+
+    const loggedInUser = getLoggedInUser();
+    if (!loggedInUser) {
+      alert("Please login first.");
+      window.location.href = "../login/login.html";
+      return;
+    }
+
+    // Collect player names
+    const players = Array.from(document.querySelectorAll('.member-box span:first-child'))
+      .map(span => span.textContent);
+
+    // Save under current user
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const updatedUsers = users.map(user => {
+      if (user.username === loggedInUser) {
+        if (!user.teams) user.teams = {};
+        user.teams[sportName.toLowerCase()] = players;
+      }
+      return user;
+    });
+
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    alert(`Registered for ${sportName} successfully!`);
+    window.location.href = "../dashboard/dashboard.html";
   });
 });
