@@ -12,7 +12,7 @@
     }
 
     body {
-      background: linear-gradient(to right, #b0d7ff, #d6eaff);
+      background: #2f3e46;
       display: flex;
       flex-direction: column;
     }
@@ -32,7 +32,7 @@
 
     .contact-header h1 {
       font-size: 42px;
-      color: #004a99;
+      color: #6bd181;
       margin-bottom: 4px;
     }
 
@@ -66,7 +66,7 @@
     }
 
     .contact-form button {
-      background-color: #004a99;
+      background-color: #52796f;
       color: #fff;
       padding: 10px 25px;
       font-size: 14px;
@@ -78,7 +78,7 @@
     }
 
     .contact-form button:hover {
-      background-color: #003366;
+      background-color: #84a98c;
     }
 
     .info-grid {
@@ -109,7 +109,7 @@
     }
 
     .info-icon {
-      background-color: #004a99;
+      background-color: #84a98c;
       color: #fff;
       width: 42px;
       height: 42px;
@@ -123,18 +123,18 @@
 
     .info-card h3 {
       font-size: 15px;
-      color: #004a99;
+      color: #84a98c;
       margin-bottom: 6px;
     }
 
     .info-card p {
       font-size: 12px;
-      color: #444;
+      color: #84a98c;
       line-height: 1.4;
     }
 
     .bottom-footer {
-      background: linear-gradient(to right, #004a99, #003366);
+      background: #354f52;
       color: white;
       display: flex;
       justify-content: space-between;
