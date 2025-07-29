@@ -9,7 +9,7 @@ body {
     h1 {
       text-align: center;
       margin-bottom: 2rem;
-      color:whitesmoke;
+      color:rgb(15, 15, 246);
       font-size: 2rem;
       letter-spacing: 1px;
     }
@@ -32,22 +32,12 @@ body {
       font-size: 20px;
       transition: background 0.3s;
     }
-
     th {
       color:  rgb(94, 248, 94);
       font-size: 1rem;
       text-transform: uppercase;
       border-bottom: 2px solid rgb(94, 248, 94);
     }
-
-  
-    /* tbody tr:nth-child(odd) {
-      background: linear-gradient(to right, #1e1e1e, #252525);
-    }
-
-    tbody tr:nth-child(even) {
-      background: linear-gradient(to right, #202020, #2b2b2b);
-    } */
 
     tbody tr:hover {
       background: #5C8374;
@@ -110,7 +100,7 @@ body {
 }
 
 .nav-links a.active {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   color: black;
   padding: 6px 12px;
   border-radius: 8px;
