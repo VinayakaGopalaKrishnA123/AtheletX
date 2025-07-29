@@ -1,0 +1,127 @@
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live Kabaddi Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <link rel="stylesheet" href="new8.css" />
+ 
+</head>
+<body>
+
+  <h1> Live Kabaddi Dashboard</h1>
+
+  <div class="section">
+    <h2>Live Score</h2>
+
+    <div class="team">
+      <div><span class="label">Team A Raiding:</span> <span id="teamA-raid">22</span> successful raids, <span id="teamA-allouts">3</span> all-outs</div>
+      <div><span class="label">Team B Defending:</span> <span id="teamB-tackles">15</span> tackle points, <span id="teamB-super">4</span> super tackles</div>
+    </div>
+    <div class="team">
+      <div><span class="label">Team B Raiding:</span> <span id="teamB-raid">19</span> successful raids, <span id="teamB-allouts">2</span> all-outs</div>
+      <div><span class="label">Team A Defending:</span> <span id="teamA-tackles">13</span> tackle points, <span id="teamA-super">2</span> super tackles</div>
+    </div>
+
+    <button class="summary-btn" onclick="toggleSummary()">Match Summary</button>
+
+    <div id="matchSummary" class="summary">
+      <p><strong>Venue:</strong> Kanteerava Indoor Stadium, Bengaluru</p>
+      <p><strong>Match Time:</strong> 2nd Half - 15 mins</p>
+      <p><strong>Status:</strong> Team A leads by 9 points</p>
+    </div>
+
+    <div class="chart-section">
+      <div class="chart-row">
+        <div class="chart-box">
+          <div id="performanceChart"></div>
+        </div>
+        <div class="chart-box">
+          <div id="summaryPieChart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    function toggleSummary() {
+      const summary = document.getElementById("matchSummary");
+      summary.style.display = summary.style.display === "none" ? "block" : "none";
+    }
+
+   
+    let teamA = { raids: 22, allouts: 3, tackles: 13, super: 2 };
+    let teamB = { raids: 19, allouts: 2, tackles: 15, super: 4 };
+
+   
+    const performanceChart = new ApexCharts(document.querySelector("#performanceChart"), {
+      chart: { type: 'line', height: 300 },
+      series: [
+        { name: 'Team A Raids', data: [5, 10, 15, 18, teamA.raids] },
+        { name: 'Team B Raids', data: [4, 8, 12, 15, teamB.raids] }
+      ],
+      xaxis: { categories: ['5m', '10m', '15m', '20m', 'Now'] },
+      theme: { mode: 'dark' }
+    });
+    performanceChart.render();
+
+   
+    const summaryPieChart = new ApexCharts(document.querySelector("#summaryPieChart"), {
+      chart: { type: 'donut', height: 300 },
+      series: [teamA.tackles, teamB.tackles, teamA.super, teamB.super],
+      labels: ['Team A Tackles', 'Team B Tackles', 'Team A Super Tackles', 'Team B Super Tackles'],
+      theme: { mode: 'dark' }
+    });
+    summaryPieChart.render();
+
+   
+    function updateLiveScore(newA, newB) {
+    
+      teamA = newA;
+      teamB = newB;
+
+     
+      document.getElementById("teamA-raid").textContent = teamA.raids;
+      document.getElementById("teamA-allouts").textContent = teamA.allouts;
+      document.getElementById("teamA-tackles").textContent = teamA.tackles;
+      document.getElementById("teamA-super").textContent = teamA.super;
+
+      document.getElementById("teamB-raid").textContent = teamB.raids;
+      document.getElementById("teamB-allouts").textContent = teamB.allouts;
+      document.getElementById("teamB-tackles").textContent = teamB.tackles;
+      document.getElementById("teamB-super").textContent = teamB.super;
+
+      
+      performanceChart.updateSeries([
+        { name: 'Team A Raids', data: [5, 10, 15, 18, teamA.raids] },
+        { name: 'Team B Raids', data: [4, 8, 12, 15, teamB.raids] }
+      ]);
+
+      summaryPieChart.updateSeries([
+        teamA.tackles,
+        teamB.tackles,
+        teamA.super,
+        teamB.super
+      ]);
+    }
+
+    
+    setTimeout(() => {
+      updateLiveScore(
+        { raids: 25, allouts: 4, tackles: 15, super: 3 },
+        { raids: 21, allouts: 2, tackles: 16, super: 4 }
+      );
+    }, 5000);
+
+    setTimeout(() => {
+      updateLiveScore(
+        { raids: 30, allouts: 5, tackles: 18, super: 4 },
+        { raids: 25, allouts: 3, tackles: 17, super: 5 }
+      );
+    }, 10000);
+  </script>
+
+</body>
+</html>

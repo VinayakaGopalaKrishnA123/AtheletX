@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live Cricket Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <link rel="stylesheet" href="new8.css">
+</head>
+<body>
+
+  <h1>🏏 Live Cricket Dashboard</h1>
+
+  <div class="section">
+    <div class="team">
+      <div class="label">Team A</div>
+      <div id="teamA-score">120/3</div>
+    </div>
+    <div class="team">
+      <div class="label">Team B</div>
+      <div id="teamB-score">98/5</div>
+    </div>
+
+    <button class="summary-btn" onclick="toggleSummary()">Match Summary</button>
+
+    <div id="matchSummary" class="summary">
+      <p><strong>Venue:</strong> Wankhede Stadium, Mumbai</p>
+      <p><strong>Overs:</strong> 15.2</p>
+      <p><strong>Status:</strong> Team A leads by 22 runs</p>
+    </div>
+
+    <div class="chart-section">
+      <div class="chart-row">
+        <div class="chart-box">
+          <div id="performanceChart"></div>
+        </div>
+        <div class="chart-box">
+          <div id="summaryPieChart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+   
+    function toggleSummary() {
+      const summary = document.getElementById("matchSummary");
+      summary.style.display = summary.style.display === "none" ? "block" : "none";
+    }
+
+  
+    let teamAScore = 120;
+    let teamAWickets = 3;
+    let teamBScore = 98;
+    let teamBWickets = 5;
+
+  
+    const performanceOptions = {
+      chart: {
+        type: 'line',
+        height: 300
+      },
+      series: [{
+        name: 'Team A',
+        data: [10, 25, 40, 70, 90, 100, teamAScore]
+      }, {
+        name: 'Team B',
+        data: [5, 20, 35, 50, 65, 80, teamBScore]
+      }],
+      xaxis: {
+        categories: ['1', '3', '5', '7', '10', '13', '15.2']
+      },
+      theme: {
+        mode: 'dark'
+      }
+    };
+
+    const performanceChart = new ApexCharts(document.querySelector("#performanceChart"), performanceOptions);
+    performanceChart.render();
+
+  
+    const pieOptions = {
+      chart: {
+        type: 'donut',
+        height: 300
+      },
+      series: [teamAWickets, 10 - teamAWickets, teamBWickets, 10 - teamBWickets],
+      labels: ['Team A Wickets', 'Team A Remaining', 'Team B Wickets', 'Team B Remaining'],
+      theme: {
+        mode: 'dark'
+      }
+    };
+
+    const summaryPieChart = new ApexCharts(document.querySelector("#summaryPieChart"), pieOptions);
+    summaryPieChart.render();
+
+   
+    function updateLiveScore(aScore, aWkts, bScore, bWkts) {
+     
+      document.getElementById("teamA-score").textContent = `${aScore}/${aWkts}`;
+      document.getElementById("teamB-score").textContent = `${bScore}/${bWkts}`;
+
+    
+      performanceChart.updateSeries([{
+        name: 'Team A',
+        data: [10, 25, 40, 70, 90, 100, aScore]
+      }, {
+        name: 'Team B',
+        data: [5, 20, 35, 50, 65, 80, bScore]
+      }]);
+
+      summaryPieChart.updateSeries([aWkts, 10 - aWkts, bWkts, 10 - bWkts]);
+    }
+
+  
+    setTimeout(() => {
+      updateLiveScore(140, 4, 110, 6);
+    }, 5000);
+
+    setTimeout(() => {
+      updateLiveScore(160, 5, 130, 7);
+    }, 10000);
+  </script>
+
+</body>
+</html>
