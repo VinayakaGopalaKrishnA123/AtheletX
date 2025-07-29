@@ -203,6 +203,66 @@
       border: 2px solid #004a99;
       transform: scale(1.1);
     }
+    /* Social icon container */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  color: white;  /* Default color */
+  font-size: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Hover effect - background color change to white, icon color change to platform color */
+.social-icons a:hover {
+  background-color: white;
+  color: #0077b5;  /* LinkedIn color as an example, you can change this dynamically */
+  border-color: #0077b5;  /* Example border color for LinkedIn */
+  transform: scale(1.1);
+}
+
+/* Specific hover effects for each icon */
+.social-icons a.linkedin:hover {
+  color: #0e76a8;  /* LinkedIn color */
+  border-color: #0e76a8;
+}
+
+.social-icons a.whatsapp:hover {
+  color: #25D366;  /* WhatsApp color */
+  border-color: #25D366;
+}
+
+.social-icons a.twitter:hover {
+  color: #1DA1F2;  /* Twitter color */
+  border-color: #1DA1F2;
+}
+
+.social-icons a.instagram:hover {
+  color: #E4405F;  /* Instagram color */
+  border-color: #E4405F;
+}
+
+.social-icons a.youtube:hover {
+  color: #FF0000;  /* YouTube color */
+  border-color: #FF0000;
+}
+
+.social-icons a.facebook:hover {
+  color: #4267B2;  /* Facebook color */
+  border-color: #4267B2;
+}
+
 
     /* Responsive Design */
     @media (max-width: 768px) {
