@@ -44,7 +44,10 @@
     .left-menu div:hover {
       background-color: #2f3e46;
     }
-
+    .left-menu a{
+      text-decoration: none;
+      width:100%;
+    }
     .left-menu button {
       width: 100px;
       height: 50px;
@@ -112,12 +115,12 @@
   <!-- LEFT MENU -->
   <div class="left-menu">
     <img src="user.png">
-    <div>Home</div>
-    <div>Notifications</div>
-    <div>Registrations</div>
-    <div>Live Scores</div>
-    <div>Schedule</div>
-    <div>Contact Us</div>
+    <a href="../home/index.html"><div>Home</div></a>
+    <a href="../notifications/notifications.html"><div>Notifications</div></a>
+    <a href="../Registration/registration.html"><div>Registrations</div></a>
+    <a href="#"><div>Live Scores</div></a>
+    <a href="../Schedules/Schedules_dyn.html"><div>Schedule</div></a>
+    <a href="../ContactUs/contactus.html"><div>Contact Us</div></a>
     <button class="logout" onclick="logoutUser()">Logout</button>
   </div>
 
