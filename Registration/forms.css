@@ -9,7 +9,7 @@ html, body {
   overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
   height: 100vh;
-  background: #000;
+  background: linear-gradient(to bottom right, #0f0c29,  #302b63, #24243e, #0f0c29);
 }
 
 canvas {

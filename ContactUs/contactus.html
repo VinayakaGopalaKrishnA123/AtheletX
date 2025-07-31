@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <title>Contact Us - Aditya University</title>
-  <link rel="stylesheet" href="contactus.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
- <style>
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -16,180 +14,135 @@
 
     html, body {
       height: 100%;
-      overflow-x: hidden;
-    }
 
-    body {
-    background-color: black;
-      display: flex;
-      flex-direction: column;
+     background: linear-gradient(to bottom right, #0f0c29,  #302b63, #24243e, #0f0c29); /*Navy Blue #038282; */
+      color:#ffffff;
     }
 
     .contact-section {
-      flex: 1;
+      padding: 30px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px 10px;
-    }
-
-    .contact-header {
-      text-align: center;
-      margin-bottom: 10px;
     }
 
     .contact-header h1 {
       font-size: 42px;
-      color: #0c6242;
-      margin-bottom: 4px;
+     colorww:linear-gradient(from 0deg, #ff6a00, #ee0979, #ff6a00, #ee0979);/* Hot Pink */
     }
 
     .contact-header p {
       font-size: 17px;
-      color: #f3fffa;
+      color: rgb(202, 167, 72); /* Teal Green */
     }
 
     .contact-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
       width: 100%;
       max-width: 500px;
-      padding: 0 10px;
+      margin-top: 20px;
     }
 
     .contact-form input,
     .contact-form textarea {
       width: 100%;
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-      height: 100px;
+      padding: 12px;
+      margin-bottom: 16px;
+      background-color: #ffffff;
+      color: #102C57;
+      border: 1px solid #4A9782;
+      border-radius: 10px;
     }
 
     .contact-form button {
-      background-color:  #227d66;
-      color: #fff;
-      padding: 10px 25px;
-      font-size: 14px;
+      background-color:GREEN; /* Forest Green */
+      color: white;
       border: none;
+      padding: 12px 25px;
       border-radius: 20px;
+      font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s;
-      margin-bottom: 10px;
+      transition: background-color 0.3s ease;
     }
 
     .contact-form button:hover {
-      background-color: #6d9b89;
+      background-color: #D91656; /* Hot Pink */
     }
 
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 24px;
-      margin-top: 20px;
+      margin-top: 40px;
       width: 100%;
       max-width: 800px;
-      padding: 0 10px;
     }
 
     .info-card {
       background-color: #ffffff;
+      padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      padding: 16px;
-      height: 140px;
       text-align: center;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
 
     .info-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-5px);
     }
 
     .info-icon {
-      background-color:#227d66;
-      color: #fff;
+      background-color: #640D5F; /* Deep Purple */
+      color: white;
       width: 42px;
       height: 42px;
-      margin: 0 auto 8px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      margin: 0 auto 10px;
     }
 
     .info-card h3 {
-      font-size: 15px;
-      color: #227d66;
+      color: #D91656;
       margin-bottom: 6px;
     }
 
     .info-card p {
-      font-size: 12px;
-      color: #002214;
-      line-height: 1.4;
+      color: #102C57;
+      font-size: 14px;
     }
 
     .bottom-footer {
-     background-color: #6d9b89;
+      background:linear-gradient(to right ,rgb(17, 95, 17), rgb(99, 99, 6));
       color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 44px 40px;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 14px;
+      padding: 30px 20px;
       flex-wrap: wrap;
     }
 
     .footer-left p {
-      color: #FFD93D;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 0;
-      flex-wrap: wrap;
-    }
-
-    .footer-left strong {
-      font-weight: bold;
-      color: #FFD93D;
-    }
-
-    .powered {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      color: #ffffff;
     }
 
     .th-logo {
-      height: 90px;
+      height: 60px;
+      margin-left: 10px;
     }
 
     .social-icons {
       display: flex;
       gap: 12px;
-      flex-wrap: wrap;
     }
 
     .social-icons a {
-      color: white;
-      font-size: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #D91656;
+      font-size: 20px;
+      border: 1px solid #D91656;
       border-radius: 50%;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -198,115 +151,31 @@
     }
 
     .social-icons a:hover {
-      background-color: white;
-      color: #004a99;
-      border: 2px solid #004a99;
-      transform: scale(1.1);
+      background-color: #640D5F;
+      color: white;
+      border-color: #640D5F;
     }
-    /* Social icon container */
-.social-icons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
 
-.social-icons a {
-  color: white;  /* Default color */
-  font-size: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-/* Hover effect - background color change to white, icon color change to platform color */
-.social-icons a:hover {
-  background-color: white;
-  color: #0077b5;  /* LinkedIn color as an example, you can change this dynamically */
-  border-color: #0077b5;  /* Example border color for LinkedIn */
-  transform: scale(1.1);
-}
-
-/* Specific hover effects for each icon */
-.social-icons a.linkedin:hover {
-  color: #0e76a8;  /* LinkedIn color */
-  border-color: #0e76a8;
-}
-
-.social-icons a.whatsapp:hover {
-  color: #25D366;  /* WhatsApp color */
-  border-color: #25D366;
-}
-
-.social-icons a.twitter:hover {
-  color: #1DA1F2;  /* Twitter color */
-  border-color: #1DA1F2;
-}
-
-.social-icons a.instagram:hover {
-  color: #E4405F;  /* Instagram color */
-  border-color: #E4405F;
-}
-
-.social-icons a.youtube:hover {
-  color: #FF0000;  /* YouTube color */
-  border-color: #FF0000;
-}
-
-.social-icons a.facebook:hover {
-  color: #4267B2;  /* Facebook color */
-  border-color: #4267B2;
-}
-
-
-    /* Responsive Design */
     @media (max-width: 768px) {
-      .contact-header h1 {
-        font-size: 28px;
-      }
-
-      .contact-header p {
-        font-size: 15px;
-      }
-
       .bottom-footer {
-        padding: 28px 16px;
         flex-direction: column;
         align-items: flex-start;
-        font-size: 13px;
-      }
-
-      .footer-right {
-        margin-top: 16px;
-      }
-
-      .footer-left p {
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .social-icons {
-        gap: 8px;
+        gap: 20px;
       }
     }
   </style>
-
 </head>
 <body>
+
   <div class="contact-section">
     <div class="contact-header">
       <h1>Contact Us</h1>
-      <p>Have suggestions, complaints, or feedback? We'd love to hear from you!</p>
+      <p>Have suggestions, complaints, or feedback? We'd love to hear from you!</p>
     </div>
 
     <form class="contact-form">
-      <input type="text" placeholder="Enter your name" required />
-      <input type="email" placeholder="Enter a valid email address" required />
+      <input type="text" placeholder="Enter your name" required>
+      <input type="email" placeholder="Enter a valid email address" required>
       <textarea placeholder="Write your message..." required></textarea>
       <button type="submit">Send Message</button>
     </form>
@@ -315,45 +184,41 @@
       <div class="info-card">
         <div class="info-icon"><i class="fas fa-clock"></i></div>
         <h3>Working Hours</h3>
-        <p>Mon – Fri: 9:00 AM – 5:00 PM<br />Sat – Sun: Closed</p>
+        <p>Mon – Fri: 9:00 AM – 5:00 PM<br>Sat – Sun: Closed</p>
       </div>
       <div class="info-card">
         <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
-        <h3>Phone (Landline)</h3>
-        <p>+91 23 567 8987<br />+91 25 252 3336</p>
+        <h3>Phone</h3>
+        <p>+91 23 567 8987<br>+91 25 252 3336</p>
       </div>
       <div class="info-card">
         <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-        <h3>Head Office</h3>
-        <p>Aditya University<br />Surampalem, Andhra Pradesh</p>
+        <h3>Address</h3>
+        <p>Aditya University<br>Surampalem, Andhra Pradesh</p>
       </div>
     </div>
   </div>
 
-<footer class="bottom-footer">
-  <div class="footer-left">
-  <p>
-    © CopyRight All Rights Reserved by <strong>Aditya University</strong> &nbsp;
-    <span class="powered">Powered By 
-        <a href="https://maya.technicalhub.io/" target="_blank">
-       <img src="Thub_logo.png" alt="Technical Hub" class="th-logo"></span> </a>
-  </p>
-</div>
-
-
-  <div class="footer-right">
-    <div class="social-icons">
-       <a href="https://www.linkedin.com/school/adityauniversity/" target="_blank" class="footer-icon"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://wa.me/919989776661" target="_blank" class="footer-icon"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://x.com/adityauniv" target="_blank" class="footer-icon"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.instagram.com/aditya_university/" target="_blank" class="footer-icon"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@adityauniversity" target="_blank" class="footer-icon"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.facebook.com/adityauniversity9" target="_blank" class="footer-icon"><i class="fab fa-facebook-f"></i></a>
+  <footer class="bottom-footer">
+    <div class="footer-left">
+      <p>© All Rights Reserved by <strong>Aditya University</strong> |
+      Powered By 
+      <a href="https://maya.technicalhub.io/" target="_blank">
+        <img src="Thub_logo.png" alt="Technical Hub" class="th-logo">
+      </a></p>
     </div>
-  </div>
-</footer>
 
-
+    <div class="footer-right">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

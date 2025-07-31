@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Excited Sports Theme</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, #0f0f0f, #111111, #1a1a1a);
+      overflow: hidden;
+      color: #ffffff;
+      position: relative;
+    }
+
+    /* Flash Pulse Background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, #00f2fe, #4facfe, #00f2fe, #4facfe);
+      animation: rotateBg 10s linear infinite;
+      z-index: -1;
+      opacity: 0.05;
+    }
+
+    @keyframes rotateBg {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #00eaff;
+      text-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff;
+      animation: flash 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes flash {
+      from { text-shadow: 0 0 10px #00eaff; }
+      to   { text-shadow: 0 0 30px #00eaff, 0 0 60px #00eaff; }
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 1.4rem;
+      color: #e0e0e0;
+      text-align: center;
+      max-width: 600px;
+      animation: slideIn 1s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+
+    .button {
+      margin-top: 30px;
+      padding: 15px 35px;
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      border: none;
+      border-radius: 50px;
+      color: #000;
+      font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 0 15px #4facfe;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #00f2fe, 0 0 40px #00f2fe;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 16px;
+      text-align: center;
+      background: conic-gradient(from 0deg, #ff6a00, #ee0979, #ff6a00, #ee0979);
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      animation: pulse 3s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.9; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Fuel Your Passion!</h1>
+  <p>Feel the adrenaline. Live the game. An exciting new world of sports awaits you here.</p>
+  <button class="button">Start Now</button>
+
+  <footer>
+    🔥 First Impressions Matter – Let the Games Begin! 🔥
+  </footer>
+</body>
+</html>
