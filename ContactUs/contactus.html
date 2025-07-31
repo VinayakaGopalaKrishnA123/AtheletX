@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./contactus.css"/>
  <style>
     * {
       margin: 0;
@@ -17,7 +18,7 @@
     body {
       height: 100svh;
       width: 100svw;
-      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e, #0f0c29);
+      background: linear-gradient(to right,#0D1117,#1E293B);
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
@@ -35,12 +36,12 @@
 
     .contact-header h1 {
       font-size: 42px;
-     color:linear-gradient(from 0deg, #ff6a00, #ee0979, #ff6a00, #ee0979);/* Hot Pink */
+      color: #58A6FF;
     }
 
     .contact-header p {
       font-size: 17px;
-      color: rgb(202, 167, 72); /* Teal Green */
+      color:#f1f5f9;
     }
 
     .contact-form {
@@ -61,7 +62,7 @@
     }
 
     .contact-form button {
-      background-color:GREEN; /* Forest Green */
+      background-color:#238636;
       color: white;
       border: none;
       padding: 12px 25px;
@@ -72,7 +73,7 @@
     }
 
     .contact-form button:hover {
-      background-color: #D91656; /* Hot Pink */
+      background-color: #58A6FF; 
     }
 
     .info-grid {
@@ -85,20 +86,21 @@
     }
 
     .info-card {
-      background-color: #ffffff;
+      background-color:#161B22;
       padding: 20px;
       border-radius: 12px;
       text-align: center;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 3px 10px #466f9e;
       transition: transform 0.3s;
     }
 
     .info-card:hover {
       transform: translateY(-5px);
+      box-shadow:0,0,3px,10px,#466f9e;
     }
 
     .info-icon {
-      background-color: #640D5F; /* Deep Purple */
+      background-color: #58A6FF; 
       color: white;
       width: 42px;
       height: 42px;
@@ -110,17 +112,17 @@
     }
 
     .info-card h3 {
-      color: #D91656;
+      color: #f1f5f9;
       margin-bottom: 6px;
     }
 
     .info-card p {
-      color: #102C57;
+      color:#94a3b8;
       font-size: 14px;
     }
 
     .bottom-footer {
-      background:linear-gradient(to right ,rgb(17, 95, 17), rgb(99, 99, 6));
+      background:linear-gradient(#0D1117,#1E293B);
       color: white;
       display: flex;
       justify-content: space-between;
@@ -130,7 +132,7 @@
     }
 
     .footer-left p {
-      color: #ffffff;
+      color:#94a3b8;
     }
 
     .th-logo {
@@ -142,27 +144,50 @@
       display: flex;
       gap: 12px;
     }
-
+    .social-icons a:hover {
+      background-color:black;
+      color: white;
+      border-color: black;
+    }
     .social-icons a {
-      color: #D91656;
       font-size: 20px;
-      border: 1px solid #D91656;
+      color: white;
+      border: 2px solid white;
+      background-color: #0F172A;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
       text-decoration: none;
+      padding: 5px;
     }
 
-    .social-icons a:hover {
-      background-color: #640D5F;
-      color: white;
-      border-color: #640D5F;
+    .social-icons a:hover i.fa-linkedin-in {
+      color: #0077B5; 
     }
-
+    
+    .social-icons a:hover i.fa-whatsapp {
+      color: #25D366; 
+    }
+    
+    .social-icons a:hover i.fa-twitter {
+      color: #1DA1F2; 
+    }
+    
+    .social-icons a:hover i.fa-instagram {
+      color: #E1306C; 
+    }
+    
+    .social-icons a:hover i.fa-youtube {
+      color: #FF0000; 
+    }
+    
+    .social-icons a:hover i.fa-facebook-f {
+      color: #1877F2; 
+    }
     @media (max-width: 768px) {
       .bottom-footer {
         flex-direction: column;
@@ -172,7 +197,7 @@
     }
     nav {
       margin-top: 0;
-      background-color: #111;
+      background:linear-gradient(#0D1117,#1E293B);
       color: white;
       display: flex;
       justify-content: space-between;
@@ -187,7 +212,6 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 40px; 
-    /* flex: 1; */
     }
 
     .nav-left a {
