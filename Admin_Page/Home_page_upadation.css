@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #040D12;
+  background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e,#0f0c29);
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   display: flex;

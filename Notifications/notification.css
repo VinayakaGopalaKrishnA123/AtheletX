@@ -2,7 +2,6 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to bottom right, #1e1e1e, #444);
-  color: white;
 }
 
 .page-container {
@@ -15,7 +14,7 @@ body {
 /* Notification panel */
 .notification-panel {
   flex: 1;
-  background: #183D3D;
+  background: linear-gradient(to bottom, #0f0c29, #302b63,#24243e);
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
