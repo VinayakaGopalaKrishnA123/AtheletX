@@ -2,14 +2,16 @@
 document.addEventListener('DOMContentLoaded', () => {
   const title = document.title.toLowerCase();
   const playerLimits = {
-    cricket: { min: 5, max: 15 },
-    football: { min: 7, max: 11 },
-    kabaddi: { min: 5, max: 12 },
-    volleyball: { min: 6, max: 12 },
-    throwball: { min: 6, max: 12 },
-    basketball: { min: 5, max: 10 },
-    hockey: { min: 7, max: 16 }
-  };
+    cricket:    { min: 11, max: 15 },  
+    football:   { min: 7,  max: 16 },  
+    kabaddi:    { min: 7,  max: 12 },  
+    volleyball: { min: 6,  max: 12 },  
+    throwball:  { min: 6,  max: 12 },  
+    basketball: { min: 5,  max: 12 }, 
+    hockey:     { min: 7,  max: 16 }   
+  }
+
+
   const sportKey = Object.keys(playerLimits).find(key => title.includes(key));
   const limits = playerLimits[sportKey] || { min: 1, max: 15 };
   const sportName = sportKey?.charAt(0).toUpperCase() + sportKey?.slice(1) || 'Sport';
@@ -61,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (totalMembers < limits.min) {
       alert(`Minimum ${limits.min} players required to register for ${sportName}.`);
       return;
+    }
+    if(totalMembers>limits.max){
+      alert(`Maximum ${limits.max} players required to register for ${sportName}.`);
     }
 
     const loggedInUser = getLoggedInUser();
