@@ -15,211 +15,187 @@ html, body {
 }
 
 /* --- Navigation Bar --- */
-nav {
-    background-color: #111;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    position: relative; /* Keep this for positioning hamburger/dropdown relative to nav */
-    z-index: 2; /* Ensures nav is above other content like video */
-}
+.navbar-container {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between; /* Pushes the three bars to the ends */
+            align-items: center;
+            gap: 20px;
+            z-index: 1000;
+        }
 
-.nav-left {
-    margin-left: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-}
+        /* Common styles for all three bars */
+        .navbar-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            flex-grow: 0; /* Important: Prevents sections from expanding */
+        }
 
-.nav-left a {
-    color: white;
-    text-decoration: none;
-    font-size: 25px;
-    transition: color 0.3s;
-}
+        /* Individual section layouts */
+        .navbar-left {
+            justify-content: flex-start;
+            white-space: nowrap;
+        }
 
-.nav-left a:hover {
-    color: orange;
-    text-decoration: underline;
-}
+        .navbar-center {
+            justify-content: center;
+        }
 
-.nav-right {
-    display: flex; /* Ensure notification and profile icons are side-by-side */
-    align-items: center; /* Vertically align icons */
-    gap: 20px; /* Space between bell and profile icon */
-    margin-right: 70px;
-}
+        .navbar-right {
+            justify-content: flex-end;
+            gap: 20px;
+        }
 
-/* Styling for the Profile Menu (existing) */
-.profile-menu {
-    position: relative;
-    display: inline-block;
-}
+        .navbar-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF6B6B, #556270);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
 
-.profile-menu img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-}
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
 
-.profile-menu .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    color: black;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    margin-top: 5px;
-    overflow: hidden;
-    min-width: 120px; /* Adjusted for better readability */
-    z-index: 1000;
-    text-align: left; /* Ensure text aligns to the left */
-}
+        .nav-links a {
+            color: #cad2c5;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #fff;
+        }
 
-.profile-menu .dropdown a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: black;
-    transition: background 0.3s;
-}
+        .nav-icons .icon {
+            font-size: 20px;
+            color: #cad2c5;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
 
-.profile-menu .dropdown a:hover {
-    background-color: #f0f0f0;
-}
+        .nav-icons .icon:hover {
+            color: #fff;
+        }
 
-.profile-menu:hover .dropdown,
-.profile-menu:focus-within .dropdown {
-    display: block;
-}
+        .profile-dropdown {
+            position: relative;
+        }
 
-/* NEW: Styling for the Notification Bell Menu */
-.notification-menu {
-    position: relative; /* Essential for dropdown positioning */
-    display: inline-block; /* Allows it to sit next to other elements */
-    /* margin-right: 20px; - Removed, gap is now handled by .nav-right gap */
-}
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 15px); /* Position it below the icon */
+            right: 0;
+            width: 150px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1001;
+        }
 
-.notification-icon {
-    height: 50px; /* Match height of profile icon */
-    width: 50px; /* Match width of profile icon */
-    /* If your bell icon is square, border-radius will make it round. Adjust if not desired. */
-    border-radius: 50%; 
-    cursor: pointer;
-    transition: filter 0.3s ease; /* Smooth hover effect */
-}
+        .dropdown-menu.show {
+            display: flex;
+        }
 
-.notification-icon:hover {
-    filter: brightness(1.2); /* Slightly brightens the icon on hover */
-}
+        .dropdown-menu a {
+            text-decoration: none;
+            color: #cad2c5;
+            padding: 10px 15px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
 
-/* NEW: Styling for the Notification Dropdown */
-.notification-menu .dropdown {
-    display: none; /* Hidden by default */
-    position: absolute; /* Positions relative to .notification-menu */
-    top: 100%; /* Places it directly below the bell icon */
-    right: 0; /* Aligns to the right of the bell icon */
-    background-color: white; /* White background for visibility */
-    color: black; /* Dark text on white background */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    margin-top: 5px; /* Small gap between icon and dropdown */
-    overflow: hidden;
-    min-width: 250px; /* Adjusted width to fit notification text */
-    max-width: 300px; /* Max width to prevent overly long lines */
-    z-index: 1000; /* Ensure it appears above other content */
-    text-align: left; /* Ensure text aligns to the left */
-}
+        .dropdown-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 
-.notification-menu .dropdown a {
-    display: block;
-    padding: 10px 15px; /* Padding for each notification item */
-    text-decoration: none;
-    color: black;
-    transition: background 0.3s;
-    white-space: normal; /* Allow text to wrap */
-}
+        /* Hamburger menu for mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
 
-.notification-menu .dropdown a:hover {
-    background-color: #f0f0f0; /* Light gray on hover */
-}
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #cad2c5;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
 
-/* Show dropdown on hover or when the menu is focused */
-.notification-menu:hover .dropdown,
-.notification-menu:focus-within .dropdown {
-    display: block;
-}
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+                gap: 10px;
+                width: 95%;
+                top: 10px;
+            }
 
-/* --- Hamburger and Mobile Navigation --- */
-.hamburger {
-    display: none; /* Hidden by default for desktop */
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    position: absolute; /* Positioned relative to the nav */
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-}
+            .navbar-section {
+                width: 100%;
+                justify-content: space-between;
+                padding: 10px 20px;
+                flex-grow: 1; /* Allow sections to grow on mobile */
+            }
 
-.mobile-nav {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    background-color: #111;
-    width: 70%; /* Takes 70% width of the viewport */
-    position: absolute; /* Positioned relative to the body/viewport */
-    top: 60px; /* Adjusted to be below the nav bar */
-    right: 0;
-    z-index: 100; /* Ensure it's above other content when active */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-    align-items: center;
-}
+            .navbar-center {
+                position: relative;
+                overflow: hidden;
+                height: 0;
+                padding: 0;
+                transition: height 0.3s ease, padding 0.3s ease;
+            }
+            
+            .navbar-center.active {
+                height: auto;
+                padding: 10px 20px;
+            }
 
-.mobile-nav a {
-    margin-left: 0;
-    color: white;
-    padding: 15px;
-    text-decoration: none;
-    border-top: 1px solid #222;
-    text-align: center;
-    font-size: 1.2em;
-    width: 70%;
-    box-sizing: border-box;
-}
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+                text-align: center;
+            }
 
-.mobile-nav a[href$="/dashboard.html"],
-.mobile-nav a[href$="/login.html"],
-/* NEW: Add styling for new mobile nav notification links if added */
-.mobile-nav a[href$="#new-football-registration"], /* Example ID for mobile notification link */
-.mobile-nav a[href$="#cricket-postponed"] /* Example ID for mobile notification link */
-{
-    width: 60%;
-    max-width: 200px;
-    margin: 0 auto;
-    background-color: #222;
-    border-bottom: 1px solid #333;
-    border-top: none;
-    padding: 10px 15px;
-    font-size: 1em;
-    border-radius: 5px;
-    margin-top: 5px;
-}
+            .hamburger {
+                display: flex; /* Show hamburger on mobile */
+            }
+            
+            .navbar-left {
+                justify-content: space-between; /* Move title and hamburger apart */
+            }
 
-.mobile-nav a:last-child {
-    border-bottom: 1px solid #222;
-}
-
-.mobile-nav a:hover {
-    background-color: #333;
-}
-
+            .navbar-title {
+                font-size: 22px;
+            }
+        }
 /* --- Video Container --- */
 .video-con {
     position: relative; /* Keep relative to position video inside */
