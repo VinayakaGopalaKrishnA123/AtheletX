@@ -1,9 +1,14 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 body {
       background-color: #121212;
       color: #ffffff;
       font-family: 'Segoe UI', sans-serif;
-      padding: 2rem;
-      margin: 0;
+      /* padding: 2rem; */
+      /* margin: 0; */
     }
 
     h1 {
@@ -12,6 +17,114 @@ body {
       color:rgb(15, 15, 246);
       font-size: 2rem;
       letter-spacing: 1px;
+    }
+
+    h2{
+      text-align: center;
+    }
+
+nav {
+      margin-top: 0;
+      background-color: #111;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .nav-left {
+    margin-left: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px; 
+    /* flex: 1; */
+    }
+
+    .nav-left a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    transition: color 0.3s;
+    }
+
+
+
+    .nav-left a:hover {
+      color: orange;
+      text-decoration: underline;
+    }
+
+
+    .nav-right {
+
+      margin-right: 70px;
+
+    }
+
+    .profile-menu {
+      position: relative;
+      display: inline-block;
+    }
+
+    .profile-menu img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%; 
+      right: 0;
+      background-color: white;
+      color: black;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      margin-top: 5px;
+      overflow: hidden;
+      min-width: 150px;
+      z-index: 1000;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: black;
+      transition: background 0.3s;
+    }
+
+    .dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .profile-menu:hover .dropdown,
+    .profile-menu:focus-within .dropdown {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-left {
+        margin-bottom: 10px;
+      }
+
+      .nav-left a {
+        margin: 5px 10px 5px 0;
+      }
+
+      .profile-menu img {
+        background-color: white;
+      }
     }
 
     table {
@@ -40,11 +153,7 @@ body {
     }
 
     tbody tr:hover {
-<<<<<<< Updated upstream
       background: #5C8374;
-=======
-      background: rgba(17, 0, 255, 0.1);
->>>>>>> Stashed changes
       transform: scale(1.005);
     }
 
@@ -75,7 +184,7 @@ body {
     padding: 15px 10%;
     position: relative ;
     top: 0;
-    z-index: 1000;
+    /* z-index: 1000; */
 }
 
 
