@@ -6,6 +6,8 @@ body {
     justify-content: center;
     padding: 30px;
     min-height: 100sh;
+    height: 100svh;
+    width: 100svw;
 }
 
 .glass-background {
@@ -15,6 +17,7 @@ body {
     border-radius: 15px;
     width: 500px;
     box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    height: 70%;
 }
 
 input::placeholder, textarea::placeholder{
