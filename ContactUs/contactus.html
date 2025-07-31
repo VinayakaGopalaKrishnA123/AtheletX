@@ -8,49 +8,23 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
  <style>
-    .navbar{
-  border-radius: 5px;
-}
-.glass-navbar {
-  background: rgba(255, 255, 255, 0.15); 
-  backdrop-filter: blur(10px);           
-  -webkit-backdrop-filter: blur(5px);   
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);         
-  position: fixed;
-  width: 70%;
-  top: -35px;
-  border-radius: 5px;
-  left: 0;
-  z-index: 1000;
-}
-
-
-.section_in_nav_bar {
-  font-weight: 500;
-  font-size: 20px;
-font-family: 'Open Sans', Arial, sans-serif;
-  color: black;
-  text-decoration: none;
- 
-  transition: color 0.3s ease;
-}
-
-.section_in_nav_bar:hover {
-  color: orange;
-}
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
-    html, body {
-      height: 100%;
-
-     background: linear-gradient(to bottom right, #0f0c29,  #302b63, #24243e, #0f0c29); /*Navy Blue #038282; */
-      color:#ffffff;
+    body {
+      height: 100svh;
+      width: 100svw;
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e, #0f0c29);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      color: #ffffff;
+      overflow-x:hidden;
     }
+
 
     .contact-section {
       padding: 30px 20px;
@@ -61,7 +35,7 @@ font-family: 'Open Sans', Arial, sans-serif;
 
     .contact-header h1 {
       font-size: 42px;
-     colorww:linear-gradient(from 0deg, #ff6a00, #ee0979, #ff6a00, #ee0979);/* Hot Pink */
+     color:linear-gradient(from 0deg, #ff6a00, #ee0979, #ff6a00, #ee0979);/* Hot Pink */
     }
 
     .contact-header p {
