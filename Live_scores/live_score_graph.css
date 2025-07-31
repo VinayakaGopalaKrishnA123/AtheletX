@@ -2,15 +2,16 @@ body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e,#0f0c29);
-      color: #93B1A6;
+    background: linear-gradient(to right,#0D1117,#1E293b);      color: #93B1A6;
       overflow-x: hidden;
       overflow-y: hidden;
       position: relative;
     }
     h1{
+      
       position: relative;
       top: -30px;
+      
     }
     .nav-buttons {
       margin: 20px;
@@ -75,11 +76,15 @@ body {
       padding: 10px 20px;
       cursor: pointer;
     }
+    
 
     h1 {
       text-align: center;
       margin-top: 30px;
-      color: #fff;
+      color:#58A6FF;
+    }
+    .section h2{
+      color:#58a6ff;
     }
 
     .section {
@@ -89,7 +94,7 @@ body {
       width: 90%;
       max-width: 1100px;
       margin: 30px auto;
-      background: #183D3D;
+      background: #161B22;
       padding: 30px;
       border-radius: 12px;
       box-shadow: #93B1A6;
@@ -110,7 +115,7 @@ body {
 
     .label {
       font-weight: bold;
-      color: #5C8374;
+      color: #9cbde3;
     }
 
     .watermark {
@@ -155,7 +160,7 @@ body {
     }
 
     .summary-btn {
-      background-color: #5C8374;
+      background-color: #238636;
       color: white;
       padding: 10px 20px;
       border: none;

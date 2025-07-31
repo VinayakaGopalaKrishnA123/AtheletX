@@ -1,6 +1,5 @@
 body{
-    margin: 0px;
-    background-color: #0d1117;
+    background: linear-gradient(to right,#0D1117,#1E293b);
 }
 .final_nav_bar{
     position: fixed;
@@ -60,7 +59,7 @@ h1{
 .card{
     font-size: 16px;
     background: #161B22;
-    color:#C9D1D9;
+    color:#94a3b8;
     line-height: 30px;
     border-radius: 16px;
     border: 0px solid ;
@@ -88,4 +87,88 @@ label{
   text-decoration: none;
   color: inherit;
   display: block;
+}   
+.bottom-footer {
+  background: radial-gradient(circle at left, #1a1a1a, #000000);
+  color: white;
+  display: flex;
+  
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-left p {
+ /* text-align: center;
+ justify-content: center;
+ align-items: center; */
+ top: 50px;
+  font-size: 15px;
+  color: #FFD93D;
+}
+
+.footer-left .highlight {
+  font-weight: bold;
+  color: #FFD93D;
+}
+
+.th-logo {
+  height: 22px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  background-color: white;
+  color:  #ff5e00;
+    border: 2px solid #ff5e00; 
+  transform: scale(1.05);
+}
+
+.footer-left p {
+  margin: 4px 0;
+  padding-left: 40px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #FFD93D;
+}
+
+.footer-left strong {
+  font-weight: bold;
+  color: #FFD93D;
+}
+
+.powered {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.th-logo {
+   height: 90px;
 }

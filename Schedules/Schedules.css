@@ -1,15 +1,16 @@
 body {
-      background: linear-gradient(to bottom right, #0f0c29,  #302b63, #24243e, #0f0c29);
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
+      color: #94a3b8;
+      font-family: roboto;
       padding: 2rem;
       margin: 0;
+      background: linear-gradient(to right,#0D1117,#1E293b);
+
     }
 
     h1 {
+      font-family: roboto;
       text-align: center;
       margin-bottom: 2rem;
-      color:rgb(15, 15, 246);
       font-size: 2rem;
       letter-spacing: 1px;
     }
@@ -20,31 +21,32 @@ body {
       border-collapse: collapse;
       border-radius: 15px;
       overflow: hidden;
-      background-color:#183D3D;
-      box-shadow: 0 0 20px rgba(255, 0, 17, 0.1);
+      background: #161B22;
+      box-shadow: 0 3px 10px #466f9e;
       backdrop-filter: blur(8px);
       transition: all 0.3s ease;
     }
 
     th, td {
+      font-family: roboto;
       padding: 16px 20px;
       text-align: center;
       font-size: 20px;
       transition: background 0.3s;
     }
     th {
-      color:  rgb(94, 248, 94);
+      font-family: roboto;
+      color:  #58A6FF;
       font-size: 1rem;
       text-transform: uppercase;
-      border-bottom: 2px solid rgb(94, 248, 94);
+      border-bottom: 2px solid #58A6FF;
     }
 
     tbody tr:hover {
-<<<<<<< Updated upstream
+
       background: #5C8374;
-=======
-      background: rgba(17, 0, 255, 0.1);
->>>>>>> Stashed changes
+     background:  RGBA(58,189,248,0.1);
+
       transform: scale(1.005);
     }
 
@@ -69,6 +71,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
+    font-family: roboto;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.021);
@@ -82,29 +85,31 @@ body {
 .logo {
     font-size: 30px;
     font-weight: bold;
-    color: #ffffff;
+    color: #58A6FF;
 }
 
 
 .nav-links {
     display: flex;
+    color:#58A6FF;
     gap: 60px;
 }
 
 .nav-links a {
     font-size: 25px;
-    color: white;
+    color:#58A6FF;
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #ffffff;
+    color: black;
 }
 
 .nav-links a.active {
-  background-color: rgb(255, 255, 255);
+  background-color: #94a3b8
+ ;
   color: black;
   padding: 6px 12px;
   border-radius: 8px;
