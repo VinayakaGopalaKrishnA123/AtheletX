@@ -6,6 +6,8 @@ body {
       color: #93B1A6;
       overflow-x: hidden;
       /* overflow-y: hidden; */
+      height: 100svh;
+      width: 100svw;
       position: relative;
     }
 
