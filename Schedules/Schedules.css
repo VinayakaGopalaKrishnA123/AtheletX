@@ -6,13 +6,11 @@
 body {
       background: linear-gradient(to bottom right, #0f0c29,  #302b63, #24243e, #0f0c29);
       color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
-      /* padding: 2rem; */
-      /* margin: 0; */
+      /* font-family: 'Segoe UI', sans-serif; */
       height: 100svh;
       width: 100svw;
     }
-
+    
     h1 {
       text-align: center;
       margin-bottom: 2rem;
@@ -20,12 +18,12 @@ body {
       font-size: 2rem;
       letter-spacing: 1px;
     }
-
+    
     h2{
       text-align: center;
     }
-
-nav {
+    
+    nav {
       margin-top: 0;
       background-color: #111;
       color: white;
@@ -42,7 +40,6 @@ nav {
     justify-content: center;
     flex-wrap: wrap;
     gap: 40px; 
-    /* flex: 1; */
     }
 
     .nav-left a {
