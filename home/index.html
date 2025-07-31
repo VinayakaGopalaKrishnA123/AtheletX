@@ -10,51 +10,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="position-relative" style="z-index: 2;">
-        <div class="nav-left">
-            <a href="../home/index.html">Home</a>
-            <a href="../Notification/notification.html">Notifications</a>
-            <a href="../Registration/registration.html">Registrations</a>
-            <a href="../Schedules/Schedules_dyn.html">Schedules</a>
-            <a href="../Live_scores/live_score_graph.html">Live Score</a>
-            <a href="../ContactUs/contactus.html">Contact Us</a>
-        </div>
-        <div class="nav-right">
-            <div class="notification-menu" tabindex="0">
-                <img src="../media/bell_icon.png" alt="Notifications Icon" class="notification-icon">
-                <div class="dropdown">
-                    <a href="#">New registration for Football!</a>
-                    <a href="#">Cricket match postponed.</a>
-                    <a href="#">Upcoming Basketball tournament.</a>
-                    <a href="#">Your registration for Chess is confirmed.</a>
-                </div>
+    <div class="navbar-container">
+        <div class="navbar-section navbar-left">
+            <div class="navbar-title">
+                KRIDA VERSE
             </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
 
-            <div class="profile-menu" tabindex="0">
-                <img src="../media/user.png" alt="Profile Icon">
-                <div class="dropdown">
+        <div class="navbar-section navbar-center">
+            <div class="nav-links">
+                <a href="../home/index.html">Home</a>
+                <a href="../Registration/registration.html">Registration</a>
+                <a href="../Schedules/Schedules_dyn.html">Schedule</a>
+                <a href="../Live_scores/live_score_graph.html">Live Score</a>
+                <a href="../ContactUs/contactus.html">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="navbar-section navbar-right nav-icons">
+            <span class="icon"><i class="fa-solid fa-bell"></i></span>
+            <div class="profile-dropdown">
+                <span class="icon" id="profile-icon"><i class="fa-solid fa-user"></i></span>
+                <div class="dropdown-menu" id="dropdown-menu">
                     <a href="../dashboard/dashboard.html">Dashboard</a>
                     <a href="../login/login.html">Logout</a>
                 </div>
             </div>
         </div>
-        <div class="hamburger" onclick="toggleMobileNav()">
-            <i class="fas fa-bars"></i>
-        </div>
-    </nav>
-
-    <div id="mobileNav" class="mobile-nav">
-        <a href="../home/index.html">Home</a>
-        <a href="../Notification/notification.html">Notifications</a>
-        <a href="../Registration/registration.html">Registrations</a>
-        <a href="../Schedules/Schedules_dyn.html">Schedules</a>
-        <a href="../Live_scores/live_score_graph.html">Live Score</a>
-        <a href="../ContactUs/contactus.html">Contact Us</a>
-        <a href="../dashboard/dashboard.html">Dashboard</a>
-        <a href="../login/login.html">Logout</a>
-        <a href="#">New Football Registration</a>
-        <a href="#">Cricket Match Postponed</a>
     </div>
+
 
     <div class="video-con">
         <video autoplay muted loop>
@@ -62,17 +51,7 @@
         </video>
     </div>
 
-    <!-- <canvas id="hoverCanvas"></canvas>  -->
-
-    <div class="notification-box" id="notificationBox">
-        <span class="close-btn" onclick="closeNotification()">×</span>
-        <h3 class="centered-notification">🔔 New Notification</h3>
-        <br>
-        <p>Registrations for **Cricket** are live now!<br>
-        Head to the registrations section to participate in the tournament.</p>
-    </div>
-
-    <div style="background-color: black; padding: 40px 0;">
+    <div>
         <div class="section-container">
             <div class="section-image">
                 <img src="ground1.jpg" alt="Outdoor Practice Area">
@@ -119,47 +98,55 @@
         </div>
     </div>
 
-    <div class="bottom-footer">
-        <div class="footer-left">
-            <p>
-                © CopyRight All Rights Reserved by **Aditya University**
-                <span class="powered">Powered By
-                    <a href="https://maya.technicalhub.io/" target="_blank">
-                        <img src="../media/Thub_logo.png" alt="Technical Hub" class="th-logo">
-                    </a>
-                </span>
-            </p>
-        </div>
+    <footer class="bottom-footer">
+  <div class="footer-left">
+  <p>
+    © CopyRight All Rights Reserved by <strong>Aditya University</strong> &nbsp;
+    <span class="powered">Powered By 
+        <a href="https://maya.technicalhub.io/" target="_blank">
+       <img src="TechnicalHub.webp" alt="Technical Hub" class="th-logo"></span> </a>
+  </p>
+</div>
 
-        <div class="footer-right">
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/school/adityauniversity/" target="_blank" class="footer-icon"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://wa.me/919989776661" target="_blank" class="footer-icon"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://x.com/adityauniv" target="_blank" class="footer-icon"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/aditya_university/" target="_blank" class="footer-icon"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@adityauniversity" target="_blank" class="footer-icon"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.facebook.com/adityauniversity9" target="_blank" class="footer-icon"><i class="fab fa-facebook-f"></i></a>
-            </div>
-        </div>
+
+  <div class="footer-right">
+    <div class="social-icons">
+       <a href="https://www.linkedin.com/school/adityauniversity/" target="_blank" class="footer-icon"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://wa.me/919989776661" target="_blank" class="footer-icon"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://x.com/adityauniv" target="_blank" class="footer-icon"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/aditya_university/" target="_blank" class="footer-icon"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@adityauniversity" target="_blank" class="footer-icon"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.facebook.com/adityauniversity9" target="_blank" class="footer-icon"><i class="fab fa-facebook-f"></i></a>
     </div>
+  </div>
+</footer>
 
     <script>
-        function closeNotification() {
-            const box = document.getElementById('notificationBox');
-            box.style.display = 'none';
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinksSection = document.querySelector('.navbar-center');
+        const profileIcon = document.getElementById('profile-icon');
+        const dropdownMenu = document.getElementById('dropdown-menu');
 
-        // Close notification after 10 seconds
-        setTimeout(closeNotification, 10000);
+        // Toggle mobile navigation menu
+        hamburger.addEventListener('click', () => {
+            navLinksSection.classList.toggle('active');
+        });
 
-        function toggleMobileNav() {
-            const nav = document.getElementById("mobileNav");
-            if (nav.style.display === "flex") {
-                nav.style.display = "none";
-            } else {
-                nav.style.display = "flex";
+        // Toggle profile dropdown menu
+        profileIcon.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent the click from bubbling up to the window
+            dropdownMenu.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', () => {
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
             }
-        }
+        });
+    });
+
     </script>
 </body>
 </html>
