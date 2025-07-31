@@ -167,9 +167,7 @@ const slider = document.querySelector('.login-register-slider');
       } else {
         const result = registerUser(un, pwd);
         alert(result.message);
-        if (result.success) {
-          window.location.href = "../dashboard/dashboard.html";
-        }
+        location.reload();
       }
     }
 

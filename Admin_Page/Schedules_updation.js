@@ -16,12 +16,12 @@ function selectAction(action) {
   }
 }
 
-function isPastDate(inputDate) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const selected = new Date(inputDate);
-  return selected < today;
-}
+// function isPastDate(inputDate) {
+//   const today = new Date();
+//   today.setHours(0, 0, 0, 0);
+//   const selected = new Date(inputDate);
+//   return selected > today;
+// }
 
 let tournamentsData = JSON.parse(localStorage.getItem("tournaments")) || {};
 
@@ -100,10 +100,10 @@ function saveNewTournament() {
       return;
     }
 
-    if (isPastDate(date)) {
-      alert("Match date cannot be in the past.");
-      return;
-    }
+    // if (isPastDate(date)) {
+    //   alert("Match date cannot be in the past.");
+    //   return;
+    // }
 
     matches.push({ team1, team2, date, time });
   }
@@ -158,10 +158,10 @@ function saveExistingTournament() {
       return;
     }
 
-    if (isPastDate(date)) {
-      alert("Match date cannot be in the past.");
-      return;
-    }
+    // 
+    
+
+    
 
     matches.push({ team1, team2, date, time });
   }

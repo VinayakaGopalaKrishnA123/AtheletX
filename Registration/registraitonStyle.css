@@ -47,16 +47,21 @@ h1{
   width:700px;
   margin: 20px auto 0 auto;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
   height: auto;
+  width:90svw;
   gap:20px;
+  height:60svh;
 }
 .card{
     background: rgba(255, 255, 255, 0.15);
     border-radius: 16px;
     border: 0px solid ;
-    padding: 25px 30px;
+    width:400px;
+    height:200px;
+    padding:10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s;
 }

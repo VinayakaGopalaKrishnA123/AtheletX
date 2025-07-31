@@ -40,7 +40,11 @@ body {
     }
 
     tbody tr:hover {
+<<<<<<< Updated upstream
       background: #5C8374;
+=======
+      background: rgba(17, 0, 255, 0.1);
+>>>>>>> Stashed changes
       transform: scale(1.005);
     }
 

@@ -7,49 +7,46 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-
 </head>
 <body>
-
   <div class="video-con">
     <video autoplay muted loop>
-      <source src="Dpfinal.mp4" type="video/mp4">
+      <source src="https://drive.google.com/file/d/1mYjycosfYCdnwuhdynTmrQQWfcT6B9Ml/view?usp=drive_link" type="video/mp4">
     </video>
   </div>
-
- 
+<<<<<<< Updated upstream
+  <canvas id="hoverCanvas"></canvas> 
+=======
   <canvas id="hoverCanvas"></canvas>
-
- 
+>>>>>>> Stashed changes
   <nav class="navbar navbar-expand-lg glass-navbar px-4 py-3" id="hoverTarget" style="position: absolute; top: 0; width: 100%; z-index: 10;">
     <div class="container-fluid">
-      
       <a class="navbar-brand" href="#">
         <img src="dummy-removebg-preview.png" alt="Logo" width="250" height="50">
       </a>
-
-      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
- 
       <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
         <ul class="navbar-nav gap-lg-4">
 <li class="nav-item"><a href="#" onclick="event.preventDefault();" class="section_in_nav_bar">Home</a></li>
-
-          <li class="nav-item"><a class="section_in_nav_bar" href="#">Notifications</a></li>
+<<<<<<< Updated upstream
+          <li class="nav-item"><a class="section_in_nav_bar" href="../Notification/notification.html">Notifications</a></li>
           <li class="nav-item"><a class="section_in_nav_bar" href="../Registration/registration.html">Registrations</a></li>
-          <li class="nav-item"><a class="section_in_nav_bar" href="#">Schedules & Live Scores</a></li>
-          <li class="nav-item"><a class="section_in_nav_bar" href="#">Contact Us</a></li>
+          <li class="nav-item"><a class="section_in_nav_bar" href="../Schedules/Cricket_Schedules.html">Schedules </a></li>
+          <li class="nav-item"><a class="section_in_nav_bar" href="../Live_scores/live_score_graph.html">Live Scores </a></li>
+=======
+
+          <li class="nav-item"><a class="section_in_nav_bar" href="../Notifications/notification.html">Notifications</a></li>
+          <li class="nav-item"><a class="section_in_nav_bar" href="../Registration/registration.html">Registrations</a></li>
+          <li class="nav-item"><a class="section_in_nav_bar" href="../Schedules/Cricket_Schedules.html">Schedules & Live Scores</a></li>
+>>>>>>> Stashed changes
+          <li class="nav-item"><a class="section_in_nav_bar" href="../ContactUs/contactus.html">Contact Us</a></li>
         </ul>
       </div>
     </div>
   </nav>
-
-
   <div class="notification-box" id="notificationBox">
     <span class="close-btn" onclick="closeNotification()">&times;</span>
     <h3 class="centered-notification">🔔 New Notification</h3>
@@ -94,7 +91,6 @@
   </div>
 </div>
 <hr class="section-divider" />
-<!-- SECTION 3: Image Left, Text Right -->
 <div class="section-container">
   <div class="section-image">
     <img src="Ground3.jpg" alt="Multi-Sports Arena" >
@@ -109,12 +105,7 @@
     <p>Built for performance, community, and scalable infrastructure planning.</p>
   </div>
 </div>
-
-
-
-  <!-- Scripts -->
 <script>
-  // Close Notification Box
   function closeNotification() {
     const box = document.getElementById('notificationBox');
     box.style.display = 'none';

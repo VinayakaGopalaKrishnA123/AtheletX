@@ -1,0 +1,165 @@
+body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #040D12;
+      color: #93B1A6;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      position: relative;
+    }
+    h1{
+      position: relative;
+      top: -30px;
+    }
+    .nav-buttons {
+      margin: 20px;
+      text-align: center;
+    }
+    .slide {
+      width: 100vw;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .slider-container {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100vw;
+    }
+    .team {
+      margin: 10px 0;
+    }
+    .summary-btn {
+      margin-top: 10px;
+    }
+    .chart-section {
+      margin-top: 20px;
+    }
+    .chart-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .chart-box {
+      flex: 1;
+      min-width: 300px;
+    }
+    .slider-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 400%;
+    }
+
+    .slide {
+      width: 100vw;
+      flex-shrink: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .nav-buttons {
+      position: fixed;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 999;
+    }
+
+    .nav-buttons button {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #fff;
+    }
+
+    .section {
+      position: relative;
+      top: -50px;
+      height: 90%;
+      width: 90%;
+      max-width: 1100px;
+      margin: 30px auto;
+      background: #183D3D;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: #93B1A6;
+      position: relative;
+      z-index: 2;
+    }
+
+    .team {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #555;
+    }
+
+    .team:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #5C8374;
+    }
+
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 350px;
+      opacity: 0.05;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .chart-section {
+      padding-top: 20px;
+      margin-top: 30px;
+    }
+
+    #performanceChart, #summaryPieChart {
+      max-width: 80%;
+    }
+
+    .chart-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .chart-box {
+      flex: 1 1 48%;
+      max-width: 48%;
+    }
+
+    .summary {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #2C4D4D;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    .summary-btn {
+      background-color: #5C8374;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Notification</title>
+        <link rel="stylesheet" href="notification.css">
+    </head>
+    <body>
+        <div class="page-container">
+  <div class="notification-panel">
+    <h2>Sports Notifications</h2>
+    <div class="notification" onclick="openDrawer('Match A', 'Match A details')">
+      <p><strong>Match A:</strong> India vs Australia</p>
+      <span class="read-symbol">●</span>
+    </div>
+    <div class="notification" onclick="openDrawer('Match B', 'Match B details')">
+      <p><strong>Match B:</strong> England vs South Africa</p>
+      <span class="read-symbol">●</span>
+    </div>
+  </div>
+
+  <div class="side-drawer" id="drawer">
+    <button class="close-btn" onclick="closeDrawer()">✕</button>
+    <h3 id="drawerTitle">Event Title</h3>
+    <p id="drawerContent">Details will appear here.</p>
+  </div>
+</div>
+ <script>
+    function openDrawer(title, content) {
+      document.getElementById("drawerTitle").textContent = title;
+      document.getElementById("drawerContent").textContent = content;
+      document.getElementById("drawer").classList.add("open");
+    }
+
+   
+    function closeDrawer() {
+  const drawer = document.getElementById("drawer");
+  drawer.classList.remove("open"); // Hides the drawer
+}
+
+  </script>
+
+    </body>
+</html>
