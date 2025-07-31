@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
     font-family: 'Jost', sans-serif;
     background:url('Login.png') no-repeat center/cover;
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e,#0f0c29);
 }
 .header {
     font-size: 3em;
