@@ -92,6 +92,7 @@ label{
   background: radial-gradient(circle at left, #1a1a1a, #000000);
   color: white;
   display: flex;
+<<<<<<< HEAD
   
   justify-content: space-between;
   align-items: center;
@@ -109,6 +110,29 @@ label{
   color: #FFD93D;
 }
 
+=======
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+}
+
+.footer-left p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #FFD93D;
+}
+
+>>>>>>> c78165a2b2d87a40b8282a1bbbb0a54c849df49e
 .footer-left .highlight {
   font-weight: bold;
   color: #FFD93D;
@@ -124,6 +148,10 @@ label{
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+<<<<<<< HEAD
+=======
+  align-items: center;
+>>>>>>> c78165a2b2d87a40b8282a1bbbb0a54c849df49e
 }
 
 .social-icons a {
@@ -142,6 +170,7 @@ label{
 
 .social-icons a:hover {
   background-color: white;
+<<<<<<< HEAD
   color:  #ff5e00;
     border: 2px solid #ff5e00; 
   transform: scale(1.05);
@@ -156,6 +185,26 @@ label{
   flex-wrap: wrap;
   gap: 8px;
   color: #FFD93D;
+=======
+  color: #ff5e00;
+  border: 2px solid #ff5e00;
+  transform: scale(1.05);
+}
+
+.footer-right {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-right .powered {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-right .powered a {
+  text-decoration: none;
+>>>>>>> c78165a2b2d87a40b8282a1bbbb0a54c849df49e
 }
 
 .footer-left strong {
@@ -163,6 +212,7 @@ label{
   color: #FFD93D;
 }
 
+<<<<<<< HEAD
 .powered {
   display: flex;
   align-items: center;
@@ -171,4 +221,29 @@ label{
 
 .th-logo {
    height: 90px;
+=======
+.footer-left p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+@media (max-width: 768px) {
+  .bottom-footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+  }
+
+  .footer-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+    margin-top: 10px;
+  }
+>>>>>>> c78165a2b2d87a40b8282a1bbbb0a54c849df49e
 }
