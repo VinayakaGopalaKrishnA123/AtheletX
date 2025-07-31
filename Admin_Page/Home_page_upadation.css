@@ -5,8 +5,8 @@
 }
 
 body {
-  
-  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right,#0D1117,#1E293B);
+  font-family:Roboto;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@ body {
 .container {
   max-width: 600px;
   width: 100%;
-  background: #183D3D;
+  background:#161b22;
   backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 20px;
@@ -29,7 +29,7 @@ body {
   font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
-  color: #ffffffcc;
+  color: #58a6ff;
 }
 
 .flash-form {
@@ -40,7 +40,7 @@ body {
 
 .flash-form label {
   font-size: 1.1rem;
-  color: #ddd;
+  color:#f1f5f9;
 }
 
 .flash-form textarea {
@@ -49,30 +49,30 @@ body {
   border: none;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  color:#f1f5f9;
   resize: none;
   outline: none;
   font-size: 1rem;
 }
 
 .flash-form textarea::placeholder {
-  color: #ccc;
+  color:#94a3b8;
 }
 
 .flash-form button {
   align-self: flex-end;
   padding: 10px 25px;
   font-size: 1rem;
-  background-color: #5C8374;
+  background-color:#238636;
   border: none;
   border-radius: 8px;
-  color: black;
+  color:white;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .flash-form button:hover {
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: #58a6ff ;
 }
 
 @media (max-width: 480px) {
