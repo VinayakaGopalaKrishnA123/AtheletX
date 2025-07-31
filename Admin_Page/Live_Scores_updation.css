@@ -5,6 +5,8 @@ body {
     padding: 30px;
     display: flex;
     justify-content: center;
+    width: 100svw;
+    height: 100svh;
 }
 
 .glass {
@@ -13,6 +15,7 @@ body {
     padding: 20px;
     border-radius: 15px;
     width: 600px;
+    height: 30%;
     box-shadow: 0 0 20px rgba(255,255,255,0.1);
 }
 
