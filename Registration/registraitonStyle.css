@@ -1,5 +1,6 @@
 body{
     margin: 0px;
+    background-color: #0d1117;
 }
 .final_nav_bar{
     position: fixed;
@@ -33,14 +34,15 @@ body{
 .header {
   height: 100px;
   width: 100%;
-  background: linear-gradient(135deg, #74b9ff, #0984e3);
-  display: flex;
+ background-color: #161b22;
   justify-content: center; 
   align-items: center;     
 }
 
 h1{
-    color: white;
+    padding: 25px;
+    text-align: center;
+    color: #58A6FF;
 }
 .cards-container{
   height:100vh;
@@ -56,18 +58,28 @@ h1{
   height:60svh;
 }
 .card{
-    background: rgba(255, 255, 255, 0.15);
+    font-size: 16px;
+    background: #161B22;
+    color:#C9D1D9;
+    line-height: 30px;
     border-radius: 16px;
     border: 0px solid ;
     width:400px;
     height:200px;
     padding:10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    margin: 10px;
+    box-shadow: 0 3px 10px #466f9e;
     transition: transform 0.3s;
 }
 .card:hover{
     transform:translateY(-4px);
-    border:2px solid white;
+    border:2px solid #466f9e;
+    /* opacity: 50px; */
+}
+.card h2{
+    color:#58A6FF;
+    text-align:center;
+
 }
 label{
     font-weight: 700;
