@@ -1,5 +1,5 @@
 body {
-background: linear-gradient(to right,#0D1117,#1E293B);
+    background: linear-gradient(to right,#0D1117,#1E293B);
     color: #fff;
     font-family:Roboto;
     display: flex;
@@ -28,7 +28,7 @@ textarea, input{
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
-    background-color:rgb(55,65,65);
+    background-color: rgba(255, 255, 255, 0.15);
     color:#f1f5f9;
     border: 1px solid #444;
     border-radius: 5px;
@@ -50,13 +50,13 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #58a6ff;
+    background-color: #5690d3;
 }
 
-/* ✅ Responsive Design with Extended Height */
 @media (max-width: 768px) {
    body {
         padding: 30px;

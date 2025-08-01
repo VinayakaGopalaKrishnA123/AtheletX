@@ -51,11 +51,12 @@ body {
   font-size: 25px;
   font-weight: 500;
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
   box-shadow: 0 3px 10px #466f9e;
 }
 
 .card:hover {
   transform: translateY(-5px);
   background-color: #94a3b8;
+  color: black;
 }

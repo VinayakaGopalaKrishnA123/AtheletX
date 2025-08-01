@@ -21,7 +21,8 @@ body {
 
 h2 {
   text-align: center;
-  color: white;
+  color: #58a6ff;
+  font-size: 2rem;
 }
 
 .selector-container {
@@ -34,77 +35,81 @@ h2 {
 
 .selector-box {
   padding: 20px;
-  border: 2px solid #fff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   cursor: pointer;
-  background: #183D3D;
+  background:#161b22;
   text-align: center;
   width: 220px;
   transition: 0.3s;
+  box-shadow: 0 3px 10px #466f9e;
 }
 
 .selector-box:hover {
-  background: #5C8374;
+  transform: translateY(-5px);
+  background: #94a3b8;
+  color:black;
 }
 
 .selected {
-  border-color: #00ffcc;
-  background-color: #222;
+  border-color:rgba(255, 255, 255, 0.2);
+  box-shadow: 0 3px 10px #466f9e;
 }
 
 .form-section.glass {
   margin: 20px auto;
   padding: 20px;
   border-radius: 12px;
-  background: #183D3D;
+  background:#161b22;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   width: 500px;
+  box-shadow: 0 3px 10px #466f9e;
 }
 
 label {
+  color:#f1f5f9;
   margin-left: 50px;
 }
 
 input::placeholder{
-  color: white;
+   color:#94a3b8;
 }
 select, input, button {
   margin: 10px 50px;
   padding: 10px;
   font-size: 16px;
-  background: #5C8374;
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+  color:#f1f5f9;
   border: 1px solid #888;
   border-radius: 5px;
   width: 70%;
+
 }
 
-
 .match-block {
-  border: 1px solid #555;
+  border: 1px solid rgba(255, 255, 255, 0.1);;
   padding: 15px;
   border-radius: 6px;
   margin-top: 15px;
-  background: #183D3D;
 }
 
 button {
-  background: #5C8374;
-  color: #000;
+  background:#238636;
+  color: white;
   cursor: pointer;
   font-weight: bold;
   border: none;
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background: #00ccaa;
+  background:  #5690d3;
 }
 
-/* Media Query for Mobile View */
 @media (max-width: 768px) {
+
   .selector-container {
     flex-direction: column;
     align-items: center;

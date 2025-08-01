@@ -68,11 +68,11 @@ body {
   border-radius: 8px;
   color:white;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .flash-form button:hover {
-  background-color: #58a6ff ;
+  background-color: #5690d3;
 }
 
 @media (max-width: 480px) {
